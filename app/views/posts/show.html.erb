@@ -1,0 +1,12 @@
+<h1><%= @post.title %></h1>
+<hr>
+<p><%= @post.content %></p>
+<p class="small text-muted">
+  Posted <%= time_ago_in_words(@post.created_at) %> ago
+</p>
+  <hr>
+  <p>
+    <%= link_to "Edit Post", edit_post_path(@post), class: "btn btn-default" %>
+    <%= link_to "Delete Post", post_path(@post), method: :delete, class: "btn btn-default" %>
+  </p>
+<% end %>

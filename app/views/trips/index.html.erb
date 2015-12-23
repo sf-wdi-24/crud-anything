@@ -1,6 +1,8 @@
 <% @trips.each do |trip| %>
-	<p>
-		<strong>Name:</strong> <%= trip.name %><br>
-		<strong>Description:</strong> <%= trip.description %>
-	</p>
+	<div class="panel">
+		<h3><%= link_to trip.name, trip %></h3>
+		<p><%= trip.description %></p>
+		<p><%= link_to "Edit", edit_trip_path(trip) %>
+		<%= link_to "Delete", trip, method: :delete, data: { confirm: "Are you sure?" } %></p>
+	</div>
 <% end %>

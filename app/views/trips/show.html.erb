@@ -1,3 +1,4 @@
-<h3><%= @trip.name %></h3>
+<h3><%= link_to @trip.name %></h3>
 <p><%= @trip.description %></p>
-<%= button_to "Delete", @trip, method: :delete, class: "form-control" %>
+<p><%= button_to "Edit", edit_trip_path, :method => "get" %>
+<%= button_to "Delete", @trip, method: :delete, data: { confirm: 'Are you sure?' } %></p>
