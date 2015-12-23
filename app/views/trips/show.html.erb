@@ -2,3 +2,4 @@
 <p><%= @trip.description %></p>
 <p><%= button_to "Edit", edit_trip_path, :method => "get" %>
 <%= button_to "Delete", @trip, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<p><%= button_to "Add a new Post", new_trip_post_path(@trip) %></p>

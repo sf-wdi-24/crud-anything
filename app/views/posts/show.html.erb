@@ -6,7 +6,6 @@
 </p>
   <hr>
   <p>
-    <%= link_to "Edit Post", edit_post_path(@post), class: "btn btn-default" %>
-    <%= link_to "Delete Post", post_path(@post), method: :delete, class: "btn btn-default" %>
+    <%= link_to "Edit Post", edit_trip_post_path(@trip, @post) %>
+    <%= link_to "Delete Post", trip_post_path(@trip, @post), method: :delete %>
   </p>
-<% end %>

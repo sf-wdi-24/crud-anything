@@ -1,6 +1,6 @@
 
 <hr>
 <% @posts.each do |post| %>
-  <strong><%= post.title %></strong> - <%= link_to "View Post", post_path(post) %>
+  <strong><%= post.title %></strong> - <%= link_to "View Post", trip_post_path(@trip, post) %>
   <hr>
 <% end %>
