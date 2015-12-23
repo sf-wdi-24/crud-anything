@@ -24,4 +24,24 @@ class TripsController < ApplicationController
 		@trip = Trip.find_by_id(trip_id)
 	end
 
+	def edit
+		trip_id = params[:id]
+
+		@trip = Trip.find_by_id(trip_id)
+
+		render :edit
+	end
+
+	def update
+		trip_id = params[:id]
+
+		trip = Trip.find_by_id(trip_id)
+
+		trip_params = params.require(:trip).permit(:name, :description)
+
+		trip.update_attributes(trip_params)
+
+		redirect_to trip_path(trip)
+	end
+
 end
