@@ -1,0 +1,18 @@
+<h1>Create an Account</h1>
+<%= form_for @parent do |f| %>
+	<%= f.label :email %>
+	<%= f.text_field :email, placeholder: "email@example.com", autofocus: true %>
+	<br>
+	<%= f.label :first_name %>
+	<%= f.text_field :first_name, placeholder: "First Name" %>
+	<br>
+	<%= f.label :last_name %>
+	<%= f.text_field :last_name, placeholder: "Last Name" %>
+	<br>
+	<%= f.label :password %>
+	<%= f.password_field :password, placeholder: "Must be longer than 6 characters" %>
+	<br>
+	<%= f.submit "Create Account" %>
+<% end %>
+
+<p>Link to login page if already have account</p>

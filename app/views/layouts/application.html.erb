@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CrudAnything</title>
+  <%= stylesheet_link_tag    'application'%>
+  <%= javascript_include_tag 'application'%>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<!-- add classes to customize different alert type color schemes -->
+<% flash.each do |alert, message| %>
+	<div class="flash_message">
+		<h3><%= message %></h3>
+	</div>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>
