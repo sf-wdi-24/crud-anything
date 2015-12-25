@@ -2,4 +2,12 @@
 <p><%= @trip.description %></p>
 <p><%= button_to "Edit", edit_trip_path, :method => "get" %>
 <%= button_to "Delete", @trip, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-<p><%= button_to "Add a new Post", new_trip_post_path(@trip) %></p>
+<p><%= button_to "Add a new Post", new_trip_post_path(@trip), :method => "get" %></p>
+
+<% if @trip.posts.any? %>
+	<hr>
+	<% @trip.posts.each do |post| %>
+	<strong><%= post.title %></strong> - <%= link_to "View Post", trip_post_path(@trip, post) %><br>
+	<hr>
+	<% end %>
+<% end %>

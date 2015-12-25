@@ -16,6 +16,7 @@ class PostsController < ApplicationController
 
 	def create
 		@post = Post.new(post_params)
+		@post.trip = @trip
 
 		if @post.save
 			redirect_to trip_post_path(@trip, @post)

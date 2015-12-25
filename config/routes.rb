@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "trips#index"
 
   resources :trips do
-    resources :posts
+    resources :posts, :images
   end
 
 end
