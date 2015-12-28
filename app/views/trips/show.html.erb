@@ -14,8 +14,7 @@
 <% if @trip.images.any? %>
 	<hr>
 	<% @trip.images.each do |image| %>
-	<p><%= image_tag image.url(:medium) %></p>
-	<strong><%= image_tag "View Image", trip_image_path(@trip, image) %><br>
+	<p><%= image_tag image.attachment.url(:medium) %></p>
 	<hr>
 	<% end %>
 <% end %>
