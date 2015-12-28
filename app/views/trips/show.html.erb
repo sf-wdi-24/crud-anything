@@ -11,3 +11,10 @@
 	<hr>
 	<% end %>
 <% end %>
+<% if @trip.images.any? %>
+	<hr>
+	<% @trip.images.each do |image| %>
+	<strong><%= image.attachment %></strong> - <%= link_to "View Image", trip_image_path(@trip, image) %><br>
+	<hr>
+	<% end %>
+<% end %>

@@ -1,0 +1,9 @@
+<%= form_for([@trip, @image], url: trip_images_path(@trip), html: { multipart: true }) do |f| %>
+	<div class="field">
+  <%= f.label :image %>
+  <%= f.file_field :attachment %>
+  </div>
+  <div class="submit">
+  <%= f.submit "Save Image" %>
+  </div>
+<% end %>

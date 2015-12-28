@@ -15,7 +15,7 @@ class ImagesController < ApplicationController
 	end
 
 	def create
-		@image = Post.new(image_params)
+		@image = Image.new(image_params)
 		@image.trip = @trip
 
 		if @image.save
@@ -65,7 +65,7 @@ class ImagesController < ApplicationController
 	private
 
 	def image_params
-		params.require(:image).permit()
+		params.require(:image).permit(:attachment)
 	end
 
 	def set_image
