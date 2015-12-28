@@ -9,6 +9,13 @@
 			<strong><%= post.title %></strong> - <%= link_to "View Post", trip_post_path(trip, post) %><br>
 		<% end %>
 		<p><%= link_to "Add a new Image", new_trip_image_path(trip) %></p>
+		<% if trip.images.any? %>
+			<hr>
+			<% trip.images.each do |image| %>
+			<p><%= image_tag image.attachment.url(:thumb) %></p>
+			<hr>
+			<% end %>
+		<% end %>
 		
 	</div>
 <% end %>
