@@ -2,6 +2,7 @@ class MemoriesController < ApplicationController
 
 	before_action :current_parent 
   before_action :current_child
+  before_action :set_child, except: [:new, :create]
 
   def index
 
@@ -24,26 +25,37 @@ class MemoriesController < ApplicationController
   end
 
   def show
-  	
   end
 
   def edit
-  	
+
   end
 
   def update
-
+		if @memory.update_attributes(memory_params)
+			flash[:notice] = "You have updated #{@child.child_first_name}'s information"
+			redirect_to child_path(@child)
+		else
+			flash[:error] = @child.errors.full_messages.join(", ")
+			redirect_to edit_child_path(@child)
+		end
   end
   
   def destroy
-  	
+  	if current_parent  
+  	  @memory.destroy
+  		flash[:notice] = "You have removed this memory from #{@child.child_first_name}'s profile"
+  		redirect_to parent_path(current_parent)
+  	else
+  		flash[:error] = @memory.errors.full_messages.join(", ")
+  	end
   end
   
   private
   
   def set_child
-  	this_child = params[:id]
-  	@child = Child.find_by_id(this_child)
+  	@memory = Memory.find_by_id(params[:id])
+  	@child = Child.find_by_id(@memory.child_id)
   end
 
   def memory_params	

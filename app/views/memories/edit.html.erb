@@ -1,0 +1,9 @@
+<h4>Edit <%= @child.child_first_name %>'s memory</h4>
+<%= form_for @memory do |f| %>
+	<%= f.label :memory_date, "Date"  %>
+	<%= f.date_field :memory_date%>
+	<%= f.label :memory_description, "Description"  %>
+	<%= f.text_area :memory_description%>
+	<%= f.hidden_field :child_id, value: @child.id %>
+	<%= f.submit "Save Memory" %>
+<% end %>

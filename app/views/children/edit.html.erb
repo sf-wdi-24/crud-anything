@@ -1,1 +1,14 @@
 <h1>Edit Child Info</h1>
+<%= form_for @child do |f| %>
+	<%= f.label :child_first_name, "First Name" %>
+	<%= f.text_field :child_first_name, placeholder: "First Name", autofocus: true %>
+	<%= f.label :child_last_name, "Last Name" %>
+	<%= f.text_field :child_last_name, placeholder: "Last Name", value: current_parent.parent_last_name %>
+	<%= f.label :gender_male, "Male" %>
+	<%= f.radio_button :gender, "Male", :value => "male" %>
+	<%= f.label :gender_female, "Female" %>
+	<%= f.radio_button :gender, "Female", :value => "female" %>
+	<%= f.label :birthday %>
+	<%= f.date_field :birthday %>
+	<%= f.submit "Save Changes" %>
+<% end %>

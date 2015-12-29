@@ -1,16 +1,23 @@
 <% if current_parent == @parent %>
-<h1>Welcome <%= @parent.parent_first_name %></h1>
-<p>Which child would you like to add a memory for?</p>
-<% @parent.children.each do |child| %>
-	<p><%= child.child_first_name %></p>
-	<p>Memories</p>
-	<% child.memories.each do |memory| %>
-		<p><%= memory.memory_date %></p>
-		<p><%= memory.memory_description %></p>
+	<h1>Welcome <%= @parent.parent_first_name %></h1>
+	<p><button><%= link_to "Update Account", edit_parent_path(@parent) %></button></p>
+	<p><button><%= link_to "Add another Child", new_child_path %></button></p>
+	<p>Which child would you like to add a memory for?</p>
+	<% @parent.children.each do |child| %>
+		<button><%= link_to "Add Memory for #{child.child_first_name}", child_path(child.id) %></button>
+		<button><%= link_to "Show #{child.child_first_name}'s page", child_path(child.id) %></button>
+		<button><%= link_to "Edit #{child.child_first_name}'s information", edit_child_path(child.id) %></button>
+		<button><%= link_to "Remove #{child.child_first_name} from your account", child_path(child.id), method: :delete %></button>
+		<p><%= child.child_first_name %></p>
+		<p>Memories</p>
+		<% child.memories.each do |memory| %>
+			<p><%= memory.memory_date %></p>
+			<p><%= memory.memory_description %></p>
+			<button><%= link_to "Edit memory", edit_memory_path(memory.id) %></button>
+			<button><%= link_to "Remove this memory", memory_path(memory.id), method: :delete %></button>
 		<% end %>
-<button><%= link_to "Add Memory for #{child.child_first_name}" %></button>
-<% end %>
-<p><button><%= link_to "Add another Child", new_child_path %></button></p>
+		<hr>
+	<% end %>
 <% else %>
-<h1>sorry not logged in</h1>
+	<h1>Sorry you are not logged in</h1>
 <% end %>

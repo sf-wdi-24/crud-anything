@@ -4,7 +4,6 @@ class ChildrenController < ApplicationController
   before_action :set_child
 
   def index
-
   end
 
   def new
@@ -23,19 +22,39 @@ class ChildrenController < ApplicationController
   end
 
   def show
-  	# show individual child, add memories
+  	unless current_parent == @child.parent
+  		redirect_to root_path
+  	end
   end
 
   def edit
-  	# access from parent profile page
+  	unless current_parent == @child.parent
+  		redirect_to login_path
+  	end
   end
 
   def update
-
+  	if current_parent == @child.parent
+  		if @child.update_attributes(child_params)
+  			flash[:notice] = "You have updated #{@child.child_first_name}'s information"
+  			redirect_to child_path(@child)
+  		else
+  			flash[:error] = @child.errors.full_messages.join(", ")
+  			redirect_to edit_child_path(@child)
+  		end
+  	else
+  		redirect_to parent_path(current_parent)
+  	end
   end
   
   def destroy
-  	# remove child?
+  	if current_parent == @child.parent
+  		@child.destroy
+  		flash[:notice] = "You have removed #{@child.child_first_name} from your account"
+  		redirect_to parent_path(current_parent)
+  	else
+  		flash[:error] = @child.errors.full_messages.join(", ")
+  	end
   end
   
   private

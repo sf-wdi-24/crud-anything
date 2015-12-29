@@ -1,8 +1,8 @@
 class Child < ActiveRecord::Base
 
-	belongs_to :parent
-
 	has_many :memories, dependent: :destroy
+
+	belongs_to :parent
 
 	validates :child_first_name, 
 		presence: true

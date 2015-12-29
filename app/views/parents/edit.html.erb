@@ -1,2 +1,12 @@
-<h1>Parents#edit</h1>
-<p>Find me in app/views/parents/edit.html.erb</p>
+<h1>edit account</h1>
+<%= form_for @parent do |f| %>
+	<%= f.label :email %>
+	<%= f.text_field :email, placeholder: "email@example.com", autofocus: true %>
+	<%= f.label :parent_first_name %>
+	<%= f.text_field :parent_first_name, placeholder: "John" %>
+	<%= f.label :parent_last_name %>
+	<%= f.text_field :parent_last_name, placeholder: "Doe" %>
+	<%= f.label :password %>
+	<%= f.password_field :password, placeholder: "Must be longer than 6 characters" %>
+	<%= f.submit "Save Changes" %>
+<% end %>
