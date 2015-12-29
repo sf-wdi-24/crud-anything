@@ -1,0 +1,5 @@
+<hr>
+<% @images.each do |image| %>
+  <strong><%= image.title %></strong> - <%= link_to "View Image", trip_image_path(@trip, image) %>
+  <hr>
+<% end %>

@@ -5,13 +5,14 @@
 		<p><%= link_to "Edit", edit_trip_path(trip) %>
 		<%= link_to "Delete", trip, method: :delete, data: { confirm: "Are you sure?" } %></p>
 		<p><%= link_to "Add a new Post", new_trip_post_path(trip) %></p>
+		<p><%= link_to "Add a new Image", new_trip_image_path(trip) %></p>
 		<% trip.posts.each do |post| %>
 			<strong><%= post.title %></strong> - <%= link_to "View Post", trip_post_path(trip, post) %><br>
 		<% end %>
-		<p><%= link_to "Add a new Image", new_trip_image_path(trip) %></p>
 		<% if trip.images.any? %>
 			<hr>
 			<% trip.images.each do |image| %>
+			<p><%= link_to image.title, trip_image_path(trip, image) %></p>
 			<p><%= image_tag image.attachment.url(:thumb) %></p>
 			<hr>
 			<% end %>

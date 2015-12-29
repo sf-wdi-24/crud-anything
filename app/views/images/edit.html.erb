@@ -1,0 +1,8 @@
+<h2>Edit Image</h2>
+<%= form_for @image, url: trip_image_path(@trip, @image), html: { multipart: true } do |f| %>
+  <%= f.file_field :attachment %>
+  <%= f.text_field :title, placeholder: "Image title", class: "form-control", autofocus: true %>
+   <div class="submit">
+  <%= f.submit "Save Image" %>
+  </div>
+<% end %>

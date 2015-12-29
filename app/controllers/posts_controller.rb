@@ -47,7 +47,7 @@ class PostsController < ApplicationController
 			flash[:notice] = "Successfully updated post."
 			redirect_to trip_post_path(@trip, @post)
 		else
-			flash[:notice] = @post.erros.full_messages.join(", ")
+			flash[:notice] = @post.errors.full_messages.join(", ")
 			redirect_to edit_trip_post_path(@trip, @post)
 		end
 	end

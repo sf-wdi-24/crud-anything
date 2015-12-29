@@ -47,7 +47,7 @@ class ImagesController < ApplicationController
 			flash[:notice] = "Successfully updated image."
 			redirect_to trip_image_path(@trip, @image)
 		else
-			flash[:notice] = @image.erros.full_messages.join(", ")
+			flash[:notice] = @image.errors.full_messages.join(", ")
 			redirect_to edit_trip_image_path(@trip, @image)
 		end
 	end
@@ -65,7 +65,7 @@ class ImagesController < ApplicationController
 	private
 
 	def image_params
-		params.require(:image).permit(:attachment)
+		params.require(:image).permit(:attachment, :title)
 	end
 
 	def set_image

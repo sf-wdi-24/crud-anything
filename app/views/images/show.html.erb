@@ -1,1 +1,4 @@
+<h1><%= @image.title %></h1>
 <%= image_tag @image.attachment.url(:medium) %>
+<%= link_to "Edit Image", edit_trip_image_path(@trip, @image) %>
+<%= link_to "Delete Image", trip_image_path(@trip, @image), method: :delete %>

@@ -3,6 +3,7 @@
 <p><%= button_to "Edit", edit_trip_path, :method => "get" %>
 <%= button_to "Delete", @trip, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 <p><%= button_to "Add a new Post", new_trip_post_path(@trip), :method => "get" %></p>
+<p><%= button_to "Add a new Image", new_trip_image_path(@trip), :method => "get" %></p>
 
 <% if @trip.posts.any? %>
 	<hr>
@@ -14,6 +15,7 @@
 <% if @trip.images.any? %>
 	<hr>
 	<% @trip.images.each do |image| %>
+	<p><%= link_to image.title, trip_image_path(@trip, image) %></p>
 	<p><%= image_tag image.attachment.url(:medium) %></p>
 	<hr>
 	<% end %>
