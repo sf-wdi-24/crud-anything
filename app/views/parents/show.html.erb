@@ -1,2 +1,16 @@
-<h1>Parents#show</h1>
-<p>Find me in app/views/parents/show.html.erb</p>
+<% if current_parent == @parent %>
+<h1>Welcome <%= @parent.parent_first_name %></h1>
+<p>Which child would you like to add a memory for?</p>
+<% @parent.children.each do |child| %>
+	<p><%= child.child_first_name %></p>
+	<p>Memories</p>
+	<% child.memories.each do |memory| %>
+		<p><%= memory.memory_date %></p>
+		<p><%= memory.memory_description %></p>
+		<% end %>
+<button><%= link_to "Add Memory for #{child.child_first_name}" %></button>
+<% end %>
+<p><button><%= link_to "Add another Child", new_child_path %></button></p>
+<% else %>
+<h1>sorry not logged in</h1>
+<% end %>

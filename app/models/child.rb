@@ -2,10 +2,12 @@ class Child < ActiveRecord::Base
 
 	belongs_to :parent
 
-	validates :first_name, 
+	has_many :memories, dependent: :destroy
+
+	validates :child_first_name, 
 		presence: true
 
-	validates :last_name, 
+	validates :child_last_name, 
 		presence: true
 	
 end

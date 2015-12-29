@@ -1,2 +1,22 @@
-<h1>Children#show</h1>
-<p>Find me in app/views/children/show.html.erb</p>
+<h1>Details for individual child</h1>
+
+<p><%= current_parent.parent_first_name %></p>
+<p><%= current_child.child_first_name %></p>
+<p><%= current_child.child_last_name %></p>
+<p><%= current_child.birthday %></p>
+<p><%= current_child.gender %></p>
+
+<% current_child.memories.each do |memory| %>
+<p>Date: <%= memory.memory_date %></p>
+<p>Memory: <%= memory.memory_description %></p>
+<% end %>
+
+<h4>Add A New Memory for <%= current_child.child_first_name %></h4>
+<%= form_for :memory, url: "/memories", method: :post do |f| %>
+	<%= f.label :memory_date, "Date"  %>
+	<%= f.date_field :memory_date%>
+	<%= f.label :memory_description, "Description"  %>
+	<%= f.text_area :memory_description%>
+	<%= f.hidden_field :child_id, value: @child.id %>
+	<%= f.submit "Add Memory" %>
+<% end %>

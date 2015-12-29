@@ -1,32 +1,31 @@
 class ParentsController < ApplicationController
 
 	# Find parents ID before rendering views
-	before_filter :get_parent, except: [:new, :create, :index]
+	before_action :set_parent, except: [:new, :create, :index]
 
   def index
-  	# Check for signed in user
-  	# Turn this into profile page?
+  	# remove this view? change root to another page?
   end
 
   def new
   	@parent = Parent.new
-  	# redirect to new parent profile page after creation
   end
 
   def create
   	@parent = Parent.new(parent_params)
   	if @parent.save
+  		session[:parent_id] = @parent.id
   		flash[:notice] = "You have successfully created an account"
   		redirect_to parent_path(@parent)
   	else
   		flash[:error] = @parent.errors.full_messages.join(", ")
   		redirect_to new_parent_path
   	end
-
   end
 
   def show
-  	# Not showing all parents, maybe indivudual parents
+  	# profile page
+  	# get session info before loading
   end
 
   def edit
@@ -44,13 +43,13 @@ class ParentsController < ApplicationController
   private
 
   def parent_params
-  	params.require(:parent).permit(:email, :first_name, :last_name, :password)
+  	params.require(:parent).permit(:email, :parent_first_name, :parent_last_name, :password)
   end
 
-  def get_parent
-  	
-  	# get params for parent
-  	@parent = Parent.find_by_id(params[:id])
-
+  def set_parent
+  	# get parent before each page load
+  	parent_id = params[:id]
+  	@parent = Parent.find_by_id(parent_id)
   end
+
 end

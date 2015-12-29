@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CrudAnything</title>
+  <title>ReMemories</title>
   <%= stylesheet_link_tag    'application'%>
   <%= javascript_include_tag 'application'%>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<!-- <div class="debug">
+	<%= debug @parent%>
+</div> -->
+<div class="navBar">
+	<%= link_to "home", root_path %>
+	<% if current_parent %>
+	<%= link_to "profile", parent_path(current_parent) %>
+	<%= link_to "logout", logout_path %>
+	<% else %>
+	<%= link_to "sign up", new_parent_path %>
+	<%= link_to "login", login_path %>
+	<% end %>
+</div>
 <!-- add classes to customize different alert type color schemes -->
 <% flash.each do |alert, message| %>
 	<div class="flash_message">

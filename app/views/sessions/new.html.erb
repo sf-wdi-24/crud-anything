@@ -1,0 +1,9 @@
+<!-- Login page? -->
+<h1>Login Page</h1>
+<%= form_for :parent, url: "/sessions", method: :post do |f| %>
+	<%= f.label :email %>
+	<%= f.email_field :email, placeholder: "Enter email address", autofocus: true %>
+	<%= f.label :password %>
+	<%= f.password_field :password, placeholder: "Enter password" %>
+	<%= f.submit "Log In" %>
+<% end %>

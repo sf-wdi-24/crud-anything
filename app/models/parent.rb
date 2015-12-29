@@ -12,14 +12,15 @@ class Parent < ActiveRecord::Base
 		length: {minimum: 6 },
 		format: { with: /@/ }
 
-	validates :first_name, 
+	validates :parent_first_name, 
 		presence: true
 
-	validates :last_name, 
+	validates :parent_last_name, 
 		presence: true
 
 	validates :password,
 		presence: true,
-		length: { minimum: 6 }
+		length: { minimum: 6 },
+		on: :create
 
 end
