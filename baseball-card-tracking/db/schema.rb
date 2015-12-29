@@ -11,10 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151226225040) do
+ActiveRecord::Schema.define(version: 20151229172537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cards", force: :cascade do |t|
+    t.integer  "itemId"
+    t.string   "player"
+    t.string   "brand"
+    t.string   "subbrand"
+    t.integer  "year"
+    t.string   "title"
+    t.integer  "categoryId"
+    t.string   "categoryName"
+    t.string   "currency"
+    t.float    "price"
+    t.float    "gradeNumber"
+    t.string   "gradeCompany"
+    t.string   "url"
+    t.string   "imageUrl"
+    t.boolean  "rookie"
+    t.float    "pricestart"
+    t.float    "priceend"
+    t.integer  "numberBids"
+    t.string   "sellingState"
+    t.date     "startTime"
+    t.date     "endTime"
+    t.string   "listingType"
+    t.integer  "conditionId"
+    t.string   "conditionDisplayName"
+    t.string   "sellername"
+    t.string   "condition"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -22,6 +53,7 @@ ActiveRecord::Schema.define(version: 20151226225040) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "auth_token"
   end
 
 end
