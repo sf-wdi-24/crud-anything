@@ -12,4 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require materialize.min
+
+$(document).ready(function() {
+	
+	$('.newMemory').hide();
+
+	$('.addNewMemory').click( function(event) {
+		$('.newMemory').toggle();
+	});
+  
+});
