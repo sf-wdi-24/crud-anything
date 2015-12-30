@@ -152,3 +152,6 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
+  [1m[36mPhoto Load (1.0ms)[0m  [1mSELECT "photos".* FROM "photos"[0m
+  [1m[35mCategory Load (0.9ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (1.9ms)[0m  [1mSELECT "users".* FROM "users"[0m

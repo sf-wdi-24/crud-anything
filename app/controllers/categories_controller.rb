@@ -34,16 +34,19 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def destroy
-    if @category.destroy
-      flash[:notice] = 'Category deleted'
-      redirect_to photos_path
-    end
-  end
+  ##disabling the delete function for category. will be adding an admin role to manage categories
+  
+  # def destroy
+  #   if @category.destroy
+  #     flash[:notice] = 'Category deleted'
+  #     redirect_to photos_path
+  #   end
+  # end
 
 
   def show
     #show photos in that are in these categories
+    @categories = Category.all 
     @photos = @category.photos
   end
 
