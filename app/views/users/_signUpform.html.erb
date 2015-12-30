@@ -1,10 +1,10 @@
 <%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-    <% @user.errors.full_messages.each do |msg| %>
-      <div class="alert alert-danger"> <%= msg %></div>
-    <% end %>
-  <% end %>
+<%= render 'partials/flashMsg' %>
 
+  <div class="form-group">
+    <%= f.label :username %>
+    <%= f.text_field :username, class:'form-control' %>
+  </div>
   <div class="form-group">
     <%= f.label :email %>
     <%= f.text_field :email, class:'form-control' %>
@@ -20,3 +20,4 @@
   <div class="form-group">
     <%= f.submit 'Sign up', class:'btn btn-small btn-primary' %>
   </div>
+<% end %>

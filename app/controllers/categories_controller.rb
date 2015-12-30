@@ -33,9 +33,9 @@ class CategoriesController < ApplicationController
       redirect_to edit_category_path
     end
   end
-
-  ##disabling the delete function for category. will be adding an admin role to manage categories
   
+  ##disabling the delete function for category. will be adding an admin role to manage categories
+
   # def destroy
   #   if @category.destroy
   #     flash[:notice] = 'Category deleted'
