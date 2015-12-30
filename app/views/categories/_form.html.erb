@@ -1,9 +1,5 @@
 <%= form_for @category do |f| %>
-  <% if @category.errors.any? %>
-    <% @category.errors.full_messages.each do |msg| %>
-      <div class="alert alert-danger"> <%= msg %></div>
-    <% end %>
-  <% end %>
+<%= render 'partials/flashMsg' %>
 
   <div class="form-group">
     <%= f.label :name %>
