@@ -3,13 +3,20 @@ require 'ebay_ruby'
 #http://developer.ebay.com/Devzone/finding/CallRef/indec.html
 #Grading companies = BGS, PSA, BVG, BCCG, GAI, SGC
 class EbayApiCall
-    def find_by_keywords(keywords, grade_company)
+    def find_by_keywords(keywords, grade_company, grade, year, manufacturer, user_id)
 		c=EbayConnect.new(EBAY_APP_ID_KEY)
+		puts grade_company
+		puts grade
+		puts user_id
 		allCards = Array.new
-		search_query = keywords + " " + grade_company
+		search_query = keywords + " " + grade_company + " " + grade + " " + year + " " + manufacturer
 		results = c.find_items_by_keywords("#{search_query}", 100)
 		results.each do |c|
 			singleCard = Hash.new
+			#user id
+			singleCard['user_id'] = user_id
+			#search query
+			singleCard['search_query'] = keywords + " |*| " + grade_company
 			#itemId
 			singleCard['itemId'] = c.itemId[0].to_i
 			#title

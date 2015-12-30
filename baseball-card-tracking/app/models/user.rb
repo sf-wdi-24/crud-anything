@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
 
 	before_create { generate_token(:auth_token) }
 
+	has_many :cards
+	has_many :search_queries
+
 	def generate_token(column)
 	  begin
 	    self[column] = SecureRandom.urlsafe_base64

@@ -1,16 +1,6 @@
 class CardsController < ApplicationController
-  require './lib/tasks/EbayApiCall'
-
-  def apiSearch(searchQuery, graded)
-    EbayApiCall.new.find_by_keywords(searchQuery, graded)
-  end
 
   def index
-    if params[:search]
-      @cards = apiSearch(params[:search], params[:graded])
-    else
-      @cards = nil
-    end
   end
 
   def new

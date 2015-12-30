@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 	get '/signup' => 'users#new'
 	post '/users' => 'users#create'
 
+	get '/search' => 'search_queries#index', as: "search_queries"
+	post '/search' => 'search_queries#create'
+
 	resources :users
 	resources :cards
   
