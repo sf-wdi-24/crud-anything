@@ -1,4 +1,14 @@
-<% @cards.each do |c| %>
-	<%= c %>
-	<br><br>
+<%= form_tag(cards_path, :method => "get", id: "search-form") do %>
+	<%= text_field_tag :search, params[:search], placeholder: "Search" %>
+	<%= text_field_tag :graded, params[:graded], placeholder: "Grade Company" %>
+	<%= submit_tag "Search" %>
+<% end %>
+<br>
+<% if @cards.present? %>
+	<% @cards.each do |c| %>
+		<% (c.map{ |k,v| "#{k}: #{v}" }.sort).each do |x| %>
+			<%= x %><br>
+		<% end %>
+		<br><br>
+	<% end %>
 <% end %>
