@@ -13,3 +13,38 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+
+
+$(function () {
+  "use strict";
+  
+  console.log('meeeowww');
+
+  $('body').scrollspy({
+    target: '.navbar-fixed-top',
+    offset: 60
+  });
+
+  $('#topNav').affix({
+    offset: {
+        top: 200
+    }
+  });
+
+  new WOW().init();
+
+
+
+
+
+
+
+
+});
+
+
+
+
+
+
+
