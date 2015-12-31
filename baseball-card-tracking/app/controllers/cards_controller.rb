@@ -1,5 +1,7 @@
 class CardsController < ApplicationController
 
+  before_filter :authorize
+
   def index
     @cards = Card.all
   end

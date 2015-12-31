@@ -8,11 +8,25 @@
 </head>
 <body>
 
-<% if current_user %>
-	Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
-<% else %>
-	<%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
-<% end %>
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-top">
+  <div class="container">
+	<ol class="breadcrumb" id="nav-links">
+	  <% if current_user %>
+		  <li><%= link_to "New Search", '/search' %></li>
+		  <li><%= link_to "Profile", user_path(current_user) %></li>
+		  <li><%= link_to "Saved Searches", user_searches_path(current_user) %></li>
+		  <li><%= link_to "Cards", user_cards_path(current_user) %></li>
+	  <% end %>
+	  <li>
+		<% if current_user %>
+			<%= link_to "Logout", '/logout' %>
+		<% else %>
+			<%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+		<% end %>
+	  </li>
+	</ol>
+  </div>
+</nav>
 
 <% flash.each do |name, msg| %>
 	<div><%= msg %></div>

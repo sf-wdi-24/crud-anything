@@ -1,6 +1,8 @@
 class SearchQueriesController < ApplicationController
   require './lib/tasks/EbayApiCall'
 
+  before_filter :authorize
+
   def apiSearch(searchQuery, grade_company, year, manufacturer, grade, save, search_query_id)
     EbayApiCall.new.find_by_keywords(searchQuery, grade_company, grade, year, manufacturer, current_user.id, save, search_query_id)
   end
