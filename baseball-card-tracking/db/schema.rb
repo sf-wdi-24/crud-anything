@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151231142546) do
+ActiveRecord::Schema.define(version: 20151231150739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cards", force: :cascade do |t|
-    t.integer  "itemId"
+    t.integer  "itemId",               limit: 8
     t.string   "player"
     t.string   "brand"
     t.string   "subbrand"
@@ -43,13 +43,14 @@ ActiveRecord::Schema.define(version: 20151231142546) do
     t.string   "conditionDisplayName"
     t.string   "sellername"
     t.string   "condition"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "user_id"
     t.string   "search_query"
     t.integer  "search_query_id"
     t.boolean  "butItNowAvailable"
     t.boolean  "bestOfferEnabled"
+    t.string   "searchQueryString"
   end
 
   create_table "search_queries", force: :cascade do |t|

@@ -3,7 +3,7 @@ require 'json'
 
 #http://developer.ebay.com/Devzone/finding/CallRef/indec.html
 class EbayApiCall
-    def find_by_keywords(player, grade_company, grade, year, manufacturer, user_id, save)
+    def find_by_keywords(player, grade_company, grade, year, manufacturer, user_id, save, search_query_id)
 
     	search_query = player.to_s + " " + grade_company.to_s + " " + grade.to_s + " " + year.to_s + " " + manufacturer.to_s
     	allCards = Array.new
@@ -16,23 +16,21 @@ class EbayApiCall
 			resp = Net::HTTP.get_response(URI.parse(urlcomp))
 			json_object = JSON.parse(resp.body, :quirks_mode => true)
 			count = json_object["findCompletedItemsResponse"][0]["searchResult"][0]["@count"]
-			puts "count: #{count}"
 			results.push(json_object["findCompletedItemsResponse"][0]["searchResult"][0]["item"])
-			if count == 100
+			if count.to_i == 100
 				page_count += 1
-				puts "page_count: #{page_count}"
 			else
 				count_less_100 = true
 			end
 		end
 
 		(0..page_count-1).each do |i|
-			results[0].each do |c|
+			results[i].each do |c|
 				singleCard = Hash.new
 				#user id
 				singleCard['user_id'] = user_id
 				#search query
-				singleCard['search_query'] = player.to_s + " |*| " + grade_company.to_s + " |*| " + grade.to_s + " |*| " + year.to_s + " |*| " + manufacturer.to_s
+				singleCard['searchQueryString'] = player.to_s + " |*| " + grade_company.to_s + " |*| " + grade.to_s + " |*| " + year.to_s + " |*| " + manufacturer.to_s
 				#itemId
 				singleCard['itemId'] = c['itemId'][0].to_i
 				#player
@@ -45,8 +43,10 @@ class EbayApiCall
 				graded_q = (c['title'][0].upcase.include? grade_company.upcase) if grade_company != nil
 				if graded_q == true
 					singleCard['gradeCompany'] = grade_company.upcase.to_s
+					singleCard['gradeNumber'] = grade.to_i
 				else
 					singleCard['gradeCompany'] = "No_grade_company"
+					singleCard['gradeNumber'] = nil
 				end
 				#category info
 				singleCard['categoryId'] =  c['primaryCategory'][0]['categoryId'][0].to_i
@@ -83,6 +83,7 @@ class EbayApiCall
 				end
 				if save == true
 					card = Card.new(singleCard)
+					card.search_query_id = search_query_id
 					card.save
 				end
 				allCards.push(singleCard)

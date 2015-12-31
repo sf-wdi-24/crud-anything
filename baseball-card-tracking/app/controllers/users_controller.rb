@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   before_filter :authorize, except: [:new, :create]
-  before_filter :current_user_logged_in, except: [:index, :show, :edit, :show_user_posts]
+  before_filter :current_user_logged_in, except: [:index, :show, :edit, :show_user_cards, :show_user_search_queries]
 
   def index
     @users = User.all
@@ -23,6 +23,17 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
+    @searchQueries = SearchQuery.where(user_id: @user.id)
+    @cards = Card.where(user_id: @user.id)
+  end
+
+  def show_user_cards
+    @user = User.find(params[:id])
+    @card_groupings = Card.where(user_id: @user.id).group_by {|c| c.searchQueryString}
+  end
+
+  def show_user_search_queries
     @user = User.find(params[:id])
     @searchQueries = SearchQuery.where(user_id: @user.id)
     @cards = Card.where(user_id: @user.id)

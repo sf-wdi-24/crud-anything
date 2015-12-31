@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 	get '/search' => 'search_queries#index', as: "search_queries"
 	post '/search' => 'search_queries#create'
 
+	get '/users/:id/cards' => 'users#show_user_cards', as: "user_cards"
+	get '/users/:id/searches' => 'users#show_user_search_queries', as: "user_searches"
+
 	resources :users
 	resources :cards
   

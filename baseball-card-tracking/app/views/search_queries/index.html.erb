@@ -21,8 +21,10 @@
 			<%= hidden_field_tag :manufacturer, params[:manufacturer] %>
 			<%= submit_tag "Save Query", class: "btn btn-success" %>
 		<% end %>
-		<br>
+	<% else %>
+		<%= "Search Query already saved." %>
 	<% end %>
+	<br>
 	<%= "Total Results: #{@results.count} " %>
 	<br><br>
 	<% @results.each do |c| %>

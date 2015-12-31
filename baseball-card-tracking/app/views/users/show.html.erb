@@ -1,5 +1,5 @@
 <%= "#{@user.name}'s Profile" %>
 <br>
-<%= "Search Queries: #{@searchQueries.length}" %>
+<%= "Search Queries: " %><%= link_to @searchQueries.length, user_searches_path %>
 <br>
-<%= "Cards: #{@cards.length}" %>
+<%= "Cards: " %> <%= link_to @cards.length, user_cards_path %>

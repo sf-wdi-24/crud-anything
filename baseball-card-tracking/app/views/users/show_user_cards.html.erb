@@ -1,0 +1,7 @@
+<% @card_groupings.each do |search, values| %>
+	<b><%= "Search: #{search}" %></b><br>
+	<% values.sort_by{|v| v.price}.each do |v| %>
+		<li><%= "$#{v.price} (bids: #{v.numberBids}) - " %><%= link_to v.title, v.url %></li>
+	<% end %>
+	<br>
+<% end %>
