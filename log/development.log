@@ -32815,3 +32815,198 @@ Started GET "/assets/lightbox/prev-7fd9273f20fdb1229c224341271a119020a5eee74ccf6
 
 
 Started GET "/assets/lightbox/next-15b869b02c6fbaa8c6c26445a2dd2d9bad80fd27b1409f8179e5dd89dc89d90a.png" for ::1 at 2015-12-31 13:15:58 -0800
+
+
+Started GET "/photos" for ::1 at 2015-12-31 13:17:37 -0800
+Processing by PhotosController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered partials/_allNav.html.erb (1.9ms)
+  Rendered partials/_flashMsg.html.erb (0.4ms)
+  [1m[36mPhoto Load (0.3ms)[0m  [1mSELECT "photos".* FROM "photos"[0m
+  Rendered photos/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 64ms (Views: 60.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/photos" for ::1 at 2015-12-31 13:18:52 -0800
+Processing by PhotosController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered partials/_allNav.html.erb (1.3ms)
+  Rendered partials/_flashMsg.html.erb (0.1ms)
+  [1m[36mPhoto Load (0.5ms)[0m  [1mSELECT "photos".* FROM "photos"[0m
+  Rendered photos/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 55ms (Views: 53.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-12-31 13:18:53 -0800
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-12-31 13:18:53 -0800
+
+
+Started GET "/assets/lightbox.self-f3e494674fee4e28f62f64266d717337c054a70fb5ff90b729849d7611f7ae0a.js?body=1" for ::1 at 2015-12-31 13:18:53 -0800
+
+
+Started GET "/assets/application.self-a2c87e934754cf366cc56c342732ce69593045615b7a52ae1462b16cbeac1b72.css?body=1" for ::1 at 2015-12-31 13:18:53 -0800
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for ::1 at 2015-12-31 13:18:53 -0800
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for ::1 at 2015-12-31 13:18:53 -0800
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for ::1 at 2015-12-31 13:18:53 -0800
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for ::1 at 2015-12-31 13:18:53 -0800
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for ::1 at 2015-12-31 13:18:53 -0800
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for ::1 at 2015-12-31 13:18:53 -0800
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for ::1 at 2015-12-31 13:18:53 -0800
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for ::1 at 2015-12-31 13:18:53 -0800
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for ::1 at 2015-12-31 13:18:53 -0800
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for ::1 at 2015-12-31 13:18:53 -0800
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for ::1 at 2015-12-31 13:18:53 -0800
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for ::1 at 2015-12-31 13:18:53 -0800
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-12-31 13:18:53 -0800
+
+
+Started GET "/assets/application.self-7c015a09942e9c4f51e93bcd03963208d6786cabf40da4dd0c8430bfe836c016.js?body=1" for ::1 at 2015-12-31 13:18:53 -0800
+
+
+Started GET "/assets/ionicons-2ba7f20b1d8990e17a47fe3d88e4c766628aaa2baf1dd30fca0a0db59836f5f9.ttf?v=2.0.0" for ::1 at 2015-12-31 13:18:53 -0800
+
+
+Started GET "/assets/lightbox/close-5d62e6c90005bfb71f6abb440f9e4753681cb23bbd5e60477ab6f442d2f0e69c.png" for ::1 at 2015-12-31 13:18:53 -0800
+
+
+Started GET "/assets/lightbox/next-15b869b02c6fbaa8c6c26445a2dd2d9bad80fd27b1409f8179e5dd89dc89d90a.png" for ::1 at 2015-12-31 13:18:53 -0800
+
+
+Started GET "/assets/lightbox/loading-225aa88b6ab02c06222ec9468d62e15fa188e39cdb9431d1f55401ad380753ed.gif" for ::1 at 2015-12-31 13:18:53 -0800
+
+
+Started GET "/assets/lightbox/prev-7fd9273f20fdb1229c224341271a119020a5eee74ccf6b4605730917c864caf2.png" for ::1 at 2015-12-31 13:18:53 -0800
+
+
+Started GET "/photos" for ::1 at 2015-12-31 13:19:15 -0800
+Processing by PhotosController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered partials/_allNav.html.erb (0.9ms)
+  Rendered partials/_flashMsg.html.erb (0.1ms)
+  [1m[36mPhoto Load (0.3ms)[0m  [1mSELECT "photos".* FROM "photos"[0m
+  Rendered photos/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 71ms (Views: 70.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-12-31 13:19:15 -0800
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-12-31 13:19:15 -0800
+
+
+Started GET "/assets/application.self-a2c87e934754cf366cc56c342732ce69593045615b7a52ae1462b16cbeac1b72.css?body=1" for ::1 at 2015-12-31 13:19:16 -0800
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for ::1 at 2015-12-31 13:19:16 -0800
+
+
+Started GET "/assets/lightbox.self-f3e494674fee4e28f62f64266d717337c054a70fb5ff90b729849d7611f7ae0a.js?body=1" for ::1 at 2015-12-31 13:19:16 -0800
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for ::1 at 2015-12-31 13:19:16 -0800
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for ::1 at 2015-12-31 13:19:16 -0800
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for ::1 at 2015-12-31 13:19:16 -0800
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for ::1 at 2015-12-31 13:19:16 -0800
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for ::1 at 2015-12-31 13:19:16 -0800
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for ::1 at 2015-12-31 13:19:16 -0800
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for ::1 at 2015-12-31 13:19:16 -0800
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for ::1 at 2015-12-31 13:19:16 -0800
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for ::1 at 2015-12-31 13:19:16 -0800
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for ::1 at 2015-12-31 13:19:16 -0800
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for ::1 at 2015-12-31 13:19:16 -0800
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-12-31 13:19:16 -0800
+
+
+Started GET "/assets/application.self-7c015a09942e9c4f51e93bcd03963208d6786cabf40da4dd0c8430bfe836c016.js?body=1" for ::1 at 2015-12-31 13:19:16 -0800
+
+
+Started GET "/assets/ionicons-2ba7f20b1d8990e17a47fe3d88e4c766628aaa2baf1dd30fca0a0db59836f5f9.ttf?v=2.0.0" for ::1 at 2015-12-31 13:19:16 -0800
+
+
+Started GET "/assets/lightbox/close-5d62e6c90005bfb71f6abb440f9e4753681cb23bbd5e60477ab6f442d2f0e69c.png" for ::1 at 2015-12-31 13:19:16 -0800
+
+
+Started GET "/assets/lightbox/loading-225aa88b6ab02c06222ec9468d62e15fa188e39cdb9431d1f55401ad380753ed.gif" for ::1 at 2015-12-31 13:19:16 -0800
+
+
+Started GET "/assets/lightbox/prev-7fd9273f20fdb1229c224341271a119020a5eee74ccf6b4605730917c864caf2.png" for ::1 at 2015-12-31 13:19:16 -0800
+
+
+Started GET "/assets/lightbox/next-15b869b02c6fbaa8c6c26445a2dd2d9bad80fd27b1409f8179e5dd89dc89d90a.png" for ::1 at 2015-12-31 13:19:16 -0800
+
+
+Started GET "/users/3" for ::1 at 2015-12-31 13:22:50 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 53ms (Views: 51.7ms | ActiveRecord: 0.3ms)
+  [1m[36mPhoto Load (0.6ms)[0m  [1mSELECT "photos".* FROM "photos"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "photos" WHERE "photos"."id" = $1[0m  [["id", 17]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "photos" WHERE "photos"."id" = $1  [["id", 18]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "photos" WHERE "photos"."id" = $1[0m  [["id", 19]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "photos" WHERE "photos"."id" = $1  [["id", 20]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "photos" WHERE "photos"."id" = $1[0m  [["id", 21]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "photos" WHERE "photos"."id" = $1  [["id", 22]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
