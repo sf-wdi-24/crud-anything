@@ -3,7 +3,7 @@ require 'json'
 
 #http://developer.ebay.com/Devzone/finding/CallRef/indec.html
 class EbayApiCall
-    def find_by_keywords(player, grade_company, grade, year, manufacturer, user_id)
+    def find_by_keywords(player, grade_company, grade, year, manufacturer, user_id, save)
 
     	search_query = player.to_s + " " + grade_company.to_s + " " + grade.to_s + " " + year.to_s + " " + manufacturer.to_s
     	allCards = Array.new
@@ -65,6 +65,8 @@ class EbayApiCall
 				singleCard['endTime'] =  c['listingInfo'][0]['endTime'][0]
 				#but it now available
 				singleCard['butItNowAvailable'] = c['listingInfo'][0]['buyItNowAvailable'][0].to_s
+				#best offer enbled
+				singleCard['bestOfferEnabled'] = c['listingInfo'][0]['bestOfferEnabled'][0].to_s
 				#listing type (e.g. Auction, StoreInventory)
 				singleCard['listingType'] =  c['listingInfo'][0]['listingType'][0].to_s
 				#url to ebay page
@@ -79,8 +81,10 @@ class EbayApiCall
 					singleCard['conditionId'] = nil
 					singleCard['conditionDisplayName'] =  "No_condition_data"
 				end
-				# card = Card.new(singleCard)
-				# card.save
+				if save == true
+					card = Card.new(singleCard)
+					card.save
+				end
 				allCards.push(singleCard)
 			end
 		end

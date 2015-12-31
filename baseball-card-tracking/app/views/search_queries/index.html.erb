@@ -12,15 +12,17 @@
 </form>
 <br>
 <% if @results.present? %>
-	<%= form_tag(search_queries_path, :method => "post", id: "search-form-post") do %>
-		<%= hidden_field_tag :player, params[:player] %>
-		<%= hidden_field_tag :grade_company, params[:grade_company] %>
-		<%= hidden_field_tag :grade, params[:grade] %>
-		<%= hidden_field_tag :year, params[:year] %>
-		<%= hidden_field_tag :manufacturer, params[:manufacturer] %>
-		<%= submit_tag "Save Query", class: "btn btn-default" %>
+	<% if @query_exists == 0 %>
+		<%= form_tag(search_queries_path, :method => "post", id: "search-form-post") do %>
+			<%= hidden_field_tag :player, params[:player] %>
+			<%= hidden_field_tag :grade_company, params[:grade_company] %>
+			<%= hidden_field_tag :grade, params[:grade] %>
+			<%= hidden_field_tag :year, params[:year] %>
+			<%= hidden_field_tag :manufacturer, params[:manufacturer] %>
+			<%= submit_tag "Save Query", class: "btn btn-success" %>
+		<% end %>
+		<br>
 	<% end %>
-	<br>
 	<%= "Total Results: #{@results.count} " %>
 	<br><br>
 	<% @results.each do |c| %>
