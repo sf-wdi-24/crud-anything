@@ -45,7 +45,7 @@ class EbayApiCall
 					singleCard['gradeCompany'] = grade_company.upcase.to_s
 					singleCard['gradeNumber'] = grade.to_i
 				else
-					singleCard['gradeCompany'] = "No_grade_company"
+					singleCard['gradeCompany'] = nil
 					singleCard['gradeNumber'] = nil
 				end
 				#category info
@@ -81,7 +81,7 @@ class EbayApiCall
 					singleCard['conditionId'] = nil
 					singleCard['conditionDisplayName'] =  "No_condition_data"
 				end
-				if save == true
+				if save == true && Card.where(itemId: singleCard['itemId']).where(user_id: user_id).count == 0
 					card = Card.new(singleCard)
 					card.search_query_id = search_query_id
 					card.save

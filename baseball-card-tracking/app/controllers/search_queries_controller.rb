@@ -32,4 +32,12 @@ class SearchQueriesController < ApplicationController
     end
   end
 
+  def destroy
+    @search_query = SearchQuery.find(params[:id])
+    puts @search_query.id
+    if @search_query.destroy
+        redirect_to user_searches_path(current_user), notice: "Search query deleted."
+    end
+  end
+
 end
