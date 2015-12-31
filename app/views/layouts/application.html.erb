@@ -9,13 +9,13 @@
 <body>
 
 	<div class="row">
-		<nav>
-			<div class="center col s12">
-				<div class="col s12 m6">
+		<nav class="col s12">
+			<div class="center">
+				<div class="col s6">
 					<%= link_to "ReMemories", root_path, class: "waves-effect waves-light btn" %>
 				</div>
 				<% if current_parent %>
-				<div class="col s12 m6">
+				<div class="col s6">
 					<%= link_to "Profile", parent_path(current_parent), class: "waves-effect waves-light btn" %>
 					<%= link_to "Logout", logout_path, class: "waves-effect waves-light btn" %>
 					<% else %>
@@ -29,8 +29,8 @@
 	<!-- add classes to customize different alert type color schemes -->
 	<div class="row">
 	<% flash.each do |alert, message| %>
-		<div class="flash_message col s12">
-			<h3><%= message %></h3>
+		<div class="flash_<%= alert %> col s12">
+			<h3 class="col s10 offset-s1"><%= message %></h3>
 		</div>
 	<% end %>
 	</div>

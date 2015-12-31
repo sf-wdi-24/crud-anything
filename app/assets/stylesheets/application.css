@@ -15,9 +15,28 @@
  */
 
 body {
-	background-color: #607D8B;
+	background-color: #E0D9D9;
+}
+
+.flash_error {
+	background-color: #EA4E4E;
+}
+.flash_error h3 {
+  font-size: 25px;
+}
+.flash_notice {
+	background-color: #4DB14B;
+  font-size: 25px;
 }
 
 button a {
 	color: #FFFFFF;
+}
+
+.child_gender_Male {
+	background-color: #89cff0; 
+}
+
+.child_gender_Female {
+	background-color: #F4C2C2;
 }

@@ -22,4 +22,8 @@ $(document).ready(function() {
 		$('.newMemory').toggle();
 	});
   
+  setTimeout(function() {
+    $('.flash_notice').slideUp();
+  }, 3000);
+
 });

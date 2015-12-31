@@ -1,26 +1,33 @@
-<div class="col s8 offset-s4">
-	<% if current_parent == @parent %>
-		<h1>Welcome <%= @parent.parent_first_name %></h1>
-		<p><button class="waves-effect waves-light btn"><%= link_to "Update Account", edit_parent_path(@parent) %></button></p>
-		<p><button class="waves-effect waves-light btn"><%= link_to "Add another Child", new_child_path %></button></p>
-		<p>Which child would you like to add a memory for?</p>
-		<% @parent.children.each do |child| %>
-			<button class="waves-effect waves-light btn"><%= link_to "Add Memory for #{child.child_first_name}", child_path(child.id) %></button>
-			<button class="waves-effect waves-light btn"><%= link_to "Show #{child.child_first_name}'s page", child_path(child.id) %></button>
-			<button class="waves-effect waves-light btn"><%= link_to "Edit #{child.child_first_name}'s information", edit_child_path(child.id) %></button>
-			<button class="waves-effect waves-light btn"><%= link_to "Remove #{child.child_first_name} from your account", child_path(child.id), method: :delete %></button>
-			<p><%= child.child_first_name %></p>
-			<p>Memories</p>
-			<% child.memories.each do |memory| %>
-				<p><%= memory.memory_date.strftime("%B %d, %Y") %></p>
-				<p><%= memory.memory_description %></p>
-				<button class="waves-effect waves-light btn"><%= link_to "Edit memory", edit_memory_path(memory.id) %></button>
-				<button class="waves-effect waves-light btn"><%= link_to "Remove this memory", memory_path(memory.id), method: :delete %></button>
+<div class="row">
+	<div class="col s12">
+		<% if current_parent == @parent %>
+			<h1>Welcome <%= @parent.parent_first_name %></h1>
+			<% @parent.children.each do |child| %>
+			<div class="row z-depth-4 child_gender_<%= child.gender %>">
+				<h5 class="center"><%= child.child_first_name %></h5>
+				<hr>
+					<div class="col s4">
+						<button class="waves-effect waves-light btn col s12"><%= link_to "Add Memory for #{child.child_first_name}", child_path(child.id) %></button>
+						<button class="waves-effect waves-light btn col s12"><%= link_to "Edit #{child.child_first_name}", edit_child_path(child.id) %></button>
+						<button class="waves-effect waves-light btn col s12"><%= link_to "Remove #{child.child_first_name}", child_path(child.id), method: :delete %></button>
+					</div>
+					<div class="col s8 memories_divs">
+						<h4>Memories</h4>
+						<% child.memories.each do |memory| %>
+							<p><%= memory.memory_date.strftime("%B %d, %Y") %></p>
+							<p><%= memory.memory_description %></p>
+							<button class="waves-effect waves-light btn"><%= link_to "Edit memory", edit_memory_path(memory.id) %></button>
+							<button class="waves-effect waves-light btn"><%= link_to "Remove this memory", memory_path(memory.id), method: :delete %></button>
+						<% end %>
+					</div>
+				</div>
+				<br>
 			<% end %>
-			<br>
 			<div class="divider"></div>
+			<button class="waves-effect waves-light btn"><%= link_to "Update Account", edit_parent_path(@parent) %></button>
+			<button class="waves-effect waves-light btn"><%= link_to "Add another Child", new_child_path %></button>
+		<% else %>
+			<h1>Sorry you are not logged in</h1>
 		<% end %>
-	<% else %>
-		<h1>Sorry you are not logged in</h1>
-	<% end %>
+	</div>
 </div>
