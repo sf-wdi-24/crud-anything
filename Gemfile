@@ -32,6 +32,10 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# allow background processes for delayed_job
+gem 'daemons'
+
+#send emails to users
 gem 'delayed_job_active_record'
 
 group :development, :test do

@@ -23,4 +23,7 @@ class Parent < ActiveRecord::Base
 		length: { minimum: 6 },
 		on: :create
 
+		def deliver
+		end
+		handle_asynchronously :deliver
 end
