@@ -1,122 +1,64 @@
 <%= render 'partials/navPartial' %>
-<header id="first">
-  <div class="header-content">
-    <div class="inner">
-      <h1 class="cursive wow flipInX">capture the moment</h1>
+<header id='first'>
+  <div class='header-content'>
+    <div class='inner'>
+      <h1 class='cursive wow flipInX'>capture the moment</h1>
       <h4>Share with the world</h4>
       <hr>
       <br><br><br>
-      <%= link_to "#one" do %>
-          <i class="fa fa-angle-double-down" style="font-size: 60px"></i>
+      <%= link_to '#one' do %>
+          <i class='fa fa-angle-double-down' style='font-size: 60px; color: white;'></i>
         <% end %>
     </div>
   </div>
-<!--   <video autoplay="" loop="" class="fillWidth fadeIn wow collapse in" data-wow-delay="0.1s" poster="https://s3-us-west-2.amazonaws.com/coverr/poster/Traffic-blurred2.jpg" id="video-background">
-    <source src="https://s3-us-west-2.amazonaws.com/coverr/mp4/Sail-Away.mp4" type="video/mp4">Your browser does not support the video tag. I suggest you upgrade your browser.
+<!--   <video autoplay=' loop=' class='fillWidth fadeIn wow collapse in' data-wow-delay='0.1s' poster='https://s3-us-west-2.amazonaws.com/coverr/poster/Traffic-blurred2.jpg' id='video-background'>
+    <source src='https://s3-us-west-2.amazonaws.com/coverr/mp4/Sail-Away.mp4' type='video/mp4'>Your browser does not support the video tag. I suggest you upgrade your browser.
   </video> -->
 </header>
-<section id="one" class="no-padding bg-dark">
-  <div class="container-fluid">
-    <div class="row no-gutter">
-      <div class="col-lg-4 col-sm-6">
-        <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="http://www.lifeofpix.com/wp-content/uploads/2014/06/4-Life-Of-Pix-Free-Stock-Photo-black-and-white-ice-cream.jpg">
-          <img src="http://www.lifeofpix.com/wp-content/uploads/2014/06/4-Life-Of-Pix-Free-Stock-Photo-black-and-white-ice-cream.jpg" class="img-responsive" alt="Image 1">
-            <div class="gallery-box-caption">
-              <div class="gallery-box-content">
+<section id='one' class='no-padding bg-dark'>
+  <div class='container-fluid'>
+    <div class='row no-gutter'>
+    <% @photos.each do |photo|  %>
+      <div class='col-lg-4 col-sm-6'>
+      <a href='#galleryModal' class='gallery-box' data-toggle='modal' data-src='<%= image_tag photo.photo.normal.url.to_s %>'>
+        <%= image_tag photo.photo.welcome.url.to_s, class:'img-responsive' %>
+            <div class='gallery-box-caption'>
+              <div class='gallery-box-content'>
                 <div>
-                  <i class="icon-lg ion-ios-search"></i>
+                  <i class='icon-lg ion-ios-search'></i>
                 </div>
               </div>
             </div>
-        </a>
+          </a>
       </div>
-      <div class="col-lg-4 col-sm-6">
-        <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="http://www.lifeofpix.com/wp-content/uploads/2015/12/Life-of-Pix-free-stock-photos-subway-girl-reflection-macnicolae.jpg">
-          <img src="http://www.lifeofpix.com/wp-content/uploads/2015/12/Life-of-Pix-free-stock-photos-subway-girl-reflection-macnicolae.jpg" class="img-responsive" alt="Image 1">
-            <div class="gallery-box-caption">
-              <div class="gallery-box-content">
-                <div>
-                  <i class="icon-lg ion-ios-search"></i>
-                </div>
-              </div>
-            </div>
-        </a>
-      </div>
-      <div class="col-lg-4 col-sm-6">
-        <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="http://www.lifeofpix.com/wp-content/uploads/2015/04/Life-of-Pix-free-stock-photos-wall-walking-man-industrial-leeroy.jpg">
-          <img src="http://www.lifeofpix.com/wp-content/uploads/2015/04/Life-of-Pix-free-stock-photos-wall-walking-man-industrial-leeroy.jpg" class="img-responsive" alt="Image 1">
-            <div class="gallery-box-caption">
-              <div class="gallery-box-content">
-                <div>
-                  <i class="icon-lg ion-ios-search"></i>
-                </div>
-              </div>
-            </div>
-        </a>
-      </div>
-      <div class="col-lg-4 col-sm-6">
-        <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="http://www.lifeofpix.com/wp-content/uploads/2015/11/Life-of-Pix-free-stock-photos-sunset-sea-mountains-BlakeVerdoorn.jpeg">
-          <img src="http://www.lifeofpix.com/wp-content/uploads/2015/11/Life-of-Pix-free-stock-photos-sunset-sea-mountains-BlakeVerdoorn.jpeg" class="img-responsive" alt="Image 1">
-            <div class="gallery-box-caption">
-              <div class="gallery-box-content">
-                <div>
-                  <i class="icon-lg ion-ios-search"></i>
-                </div>
-              </div>
-            </div>
-        </a>
-      </div>
-      <div class="col-lg-4 col-sm-6">
-        <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="http://www.lifeofpix.com/wp-content/uploads/2015/12/Life-of-Pix-free-stock-photos-bridge-fog-construction-specialrisks.jpg">
-          <img src="http://www.lifeofpix.com/wp-content/uploads/2015/12/Life-of-Pix-free-stock-photos-bridge-fog-construction-specialrisks.jpg" class="img-responsive" alt="Image 1">
-            <div class="gallery-box-caption">
-              <div class="gallery-box-content">
-                <div>
-                  <i class="icon-lg ion-ios-search"></i>
-                </div>
-              </div>
-            </div>
-        </a>
-      </div>
-      <div class="col-lg-4 col-sm-6">
-        <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="//splashbase.s3.amazonaws.com/lifeofpix/regular/Life-of-Pix-free-stock-photos-moto-drawing-illusion-nabeel-1440x960.jpg">
-          <img src="//splashbase.s3.amazonaws.com/lifeofpix/regular/Life-of-Pix-free-stock-photos-moto-drawing-illusion-nabeel-1440x960.jpg" class="img-responsive" alt="Image 1">
-            <div class="gallery-box-caption">
-              <div class="gallery-box-content">
-                <div>
-                  <i class="icon-lg ion-ios-search"></i>
-                </div>
-              </div>
-            </div>
-        </a>
-      </div>
+    <% end %>
     </div>
   </div>
 </section>
-<aside class="bg-dark" id="two">
-  <div class="container text-center">
-    <div class="call-to-action">
-      <h2 class="text-primary">Get Started</h2>
-      <%= link_to 'Sign Up Now', signup_path, class:'btn btn-primary btn-xl page-scroll' %>
+<aside class='bg-dark' id='two'>
+  <div class='container text-center'>
+    <div class='call-to-action'>
+      <h2 class='text-primary'>Get Started</h2>
+      <%= link_to 'Sign Up Now', signup_path, class:'btn btn-primary btn-sm page-scroll' %>
     </div>
     <br>
     <hr/>
     <br>
-    <div class="row">
-      <div class="col-lg-10 col-lg-offset-1">
-        <div class="row">
-          <h6 class="wide-space text-center">BOOTSTRAP IS BASED ON THESE STANDARDS</h6>
-          <div class="col-sm-3 col-xs-6 text-center">
-            <i class="icon-lg ion-social-html5-outline" title="html 5"></i>
+    <div class='row'>
+      <div class='col-lg-10 col-lg-offset-1'>
+        <div class='row'>
+          <h6 class='wide-space text-center'>EASY TO USE </h6>
+          <div class='col-sm-3 col-xs-6 text-center'>
+            <i class='icon-lg ion-social-html5-outline' title='html 5'></i>
           </div>
-          <div class="col-sm-3 col-xs-6 text-center">
-            <i class="icon-lg ion-social-sass" title="sass"></i>
+          <div class='col-sm-3 col-xs-6 text-center'>
+            <i class='icon-lg ion-social-sass' title='sass'></i>
           </div>
-          <div class="col-sm-3 col-xs-6 text-center">
-            <i class="icon-lg ion-social-javascript-outline" title="javascript"></i>
+          <div class='col-sm-3 col-xs-6 text-center'>
+            <i class='icon-lg ion-social-javascript-outline' title='javascript'></i>
           </div>
-          <div class="col-sm-3 col-xs-6 text-center">
-            <i class="icon-lg ion-social-css3-outline" title="css 3"></i>
+          <div class='col-sm-3 col-xs-6 text-center'>
+            <i class='icon-lg ion-social-css3-outline' title='css 3'></i>
           </div>
         </div>
       </div>

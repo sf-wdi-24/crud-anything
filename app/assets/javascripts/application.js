@@ -35,7 +35,7 @@ $(function () {
 
 
 
-
+$('.alert').delay(3000).fadeOut('slow')
 
 
 $('#galleryModal').on('show.bs.modal', function (e) {
