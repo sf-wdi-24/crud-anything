@@ -31,6 +31,12 @@ $(function () {
         top: 200
     }
   });
+  // nav transition earlier for the photos#index
+  $('#allNav').affix({
+    offset: {
+        top: 20
+    }
+  });
 
   new WOW().init();
 

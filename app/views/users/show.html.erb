@@ -1,2 +1,27 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1><%= @user.username %>'s profile</h1>
+<div class="gallery profile-gallery" id="gallery">
+  <%= render 'partials/flashMsg' %>
+  <div class="container">
+    <div class="row">
+    <% @user.photos.each do |photo| %>
+        <div class="galleryimg" id="galleryimg">
+          <div class="grid mix category-2 col-md-4 col-sm-6 col-xs-6">
+            <a href='<%= photo.photo.normal.url.to_s %>' class='gallery-box' data-lightbox='gallery' data-title='<%= photo.title %>'>
+            <figure class="effect">
+              <%= image_tag photo.photo.thumb.url.to_s %>
+              <figcaption>
+                <h2><%= photo.title %></h2>
+                <p><%= photo.description %></p>
+              </figcaption>
+            </figure>
+            </a>
+            <% if current_user.id == photo.user.id %>
+              <%= link_to 'Edit', edit_photo_path(photo), class:'btn btn-sm btn-primary' %>
+              <%= link_to 'Delete', photo_path(photo), method: :delete, class:'btn btn-sm btn-primary' %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

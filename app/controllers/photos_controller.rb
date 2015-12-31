@@ -22,7 +22,7 @@ class PhotosController < ApplicationController
     if current_user.id == @photo.user_id
       @photo.destroy
       flash[:notice] = 'Photo has been deleted'
-      redirect_to photos_path
+      redirect_to user_path(current_user)
     else
       flash[:alert] = 'Something went wrong, try again'
       redirect_to photo_path(@photo)
@@ -44,7 +44,7 @@ class PhotosController < ApplicationController
     if current_user.id == @photo.user_id
       if @photo.update(photo_params)
         flash[:notice] = 'Photo has been updated'
-        redirect_to photo_path(@photo)
+        redirect_to user_path(current_user)
       else
         flash[:error] = @photo.errors.full_messages.join(', ')
         redirect_to edit_photo_path(@photo)
@@ -54,8 +54,8 @@ class PhotosController < ApplicationController
     end
   end
 
-  def show
-  end
+  # def show
+  # end
 
 private
 
