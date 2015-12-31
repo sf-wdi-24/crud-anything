@@ -1,9 +1,20 @@
-<h4>Add A New Memory for <%= current_child.child_first_name %></h4>
-<%= form_for :memory, url: "/memories", method: :post do |f| %>
-	<%= f.label :memory_date, "Date"  %>
-	<%= f.date_field :memory_date%>
-	<%= f.label :memory_description, "Description"  %>
-	<%= f.text_area :memory_description%>
-	<%= f.hidden_field :child_id, value: @child.id %>
-	<%= f.submit "Add Memory" %>
-<% end %>
+<div class="row">
+<div class="col s12">
+	<h4>Add A New Memory for <%= current_child.child_first_name %></h4>
+	</div>
+	<%= form_for :memory, url: "/memories", method: :post do |f| %>
+	<div class="input-field col s12">
+		<%= f.label :memory_date, "Date"  %>
+		<%= f.date_field :memory_date%>
+	</div>
+	<div class="input-field col s12">
+		<%= f.label :memory_description, "Description"  %>
+		<%= f.text_area :memory_description%>
+	</div>	
+		<%= f.hidden_field :child_id, value: @child.id %>
+	<div class="input-field col s12">	
+		<%= f.submit "Add Memory", class: "waves-effect waves-light btn" %>
+	</div>
+	<% end %>
+</div>
+</div>

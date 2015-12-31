@@ -1,13 +1,27 @@
-<h1>Create an Account</h1>
-<small>All fields are required</small>
-<%= form_for @parent do |f| %>
-	<%= f.label :email %>
-	<%= f.text_field :email, placeholder: "email@example.com", autofocus: true %>
-	<%= f.label :parent_first_name %>
-	<%= f.text_field :parent_first_name, placeholder: "John" %>
-	<%= f.label :parent_last_name %>
-	<%= f.text_field :parent_last_name, placeholder: "Doe" %>
-	<%= f.label :password %>
-	<%= f.password_field :password, placeholder: "Must be longer than 6 characters" %>
-	<%= f.submit "Create Account" %>
-<% end %>
+<div class="row">	
+	<div class="col s12">
+		<h1>Create an Account</h1>
+		<small>All fields are required</small>
+	</div>
+	<%= form_for @parent do |f| %>
+	<div class="input-field col s12">
+		<%= f.label :email, "Email Address" %>
+		<%= f.email_field :email, placeholder: "example@email.com", autofocus: true %>
+	</div>
+	<div class="input-field col s12">
+		<%= f.label :parent_first_name, "First Name" %>
+		<%= f.text_field :parent_first_name %>
+	</div>
+	<div class="input-field col s12">
+		<%= f.label :parent_last_name, "Last Name" %>
+		<%= f.text_field :parent_last_name %>
+	</div>
+	<div class="input-field col s12">
+		<%= f.label :password, "Password" %>
+		<%= f.password_field :password %>
+	</div>
+	<div class="input-field col s12">
+		<button class="waves-effect waves-light btn col s12"><%= f.submit "Create Account" %></button> 
+	</div>
+	<% end %>
+</div>

@@ -7,27 +7,36 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<!-- <div class="debug">
-	<%= debug @parent%>
-</div> -->
-<div class="navBar">
-	<%= link_to "Home", root_path %>
-	<% if current_parent %>
-	<%= link_to "Profile", parent_path(current_parent) %>
-	<%= link_to "Logout", logout_path %>
-	<% else %>
-	<%= link_to "Sign up", new_parent_path %>
-	<%= link_to "Login", login_path %>
-	<% end %>
-</div>
-<!-- add classes to customize different alert type color schemes -->
-<% flash.each do |alert, message| %>
-	<div class="flash_message">
-		<h3><%= message %></h3>
-	</div>
-<% end %>
 
-<%= yield %>
+	<div class="row">
+		<nav class="col s12">
+			<div class="center">
+				<div class="col s6">
+					<%= link_to "ReMemories", root_path, class: "waves-effect waves-light btn" %>
+				</div>
+				<% if current_parent %>
+				<div class="col s6">
+					<%= link_to "Profile", parent_path(current_parent), class: "waves-effect waves-light btn" %>
+					<%= link_to "Logout", logout_path, class: "waves-effect waves-light btn" %>
+					<% else %>
+					<%= link_to "Sign up", new_parent_path, class: "waves-effect waves-light btn" %>
+					<%= link_to "Login", login_path, class: "waves-effect waves-light btn" %>
+				</div>
+				<% end %>
+			</div>
+		</nav>
+	</div>
+	<!-- add classes to customize different alert type color schemes -->
+	<div class="row">
+	<% flash.each do |alert, message| %>
+		<div class="flash_<%= alert %> col s12">
+			<h3 class="col s10 offset-s1"><%= message %></h3>
+		</div>
+	<% end %>
+	</div>
+<div class="container">
+	<%= yield %>
+</div>
 
 </body>
 </html>

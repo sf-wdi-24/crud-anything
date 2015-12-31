@@ -12,4 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require materialize.min
+
+$(document).ready(function() {
+	
+	$('.newMemory').hide();
+
+	$('.addNewMemory').click( function(event) {
+		$('.newMemory').toggle();
+	});
+  
+  setTimeout(function() {
+    $('.flash_notice').slideUp();
+  }, 3000);
+
+});
