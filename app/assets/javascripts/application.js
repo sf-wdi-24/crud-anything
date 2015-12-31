@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require materialize.min
+//= require materialize
 
 $(document).ready(function() {
 	
