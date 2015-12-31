@@ -30,7 +30,7 @@ class PhotosController < ApplicationController
   end
 
   def index
-    @photos = Photo.all 
+    @photos = Photo.all.page(params[:page]).per(6) 
     @categories = Category.all
   end
 
