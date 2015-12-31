@@ -5,9 +5,6 @@ require 'ebay_ruby'
 class EbayApiCall
     def find_by_keywords(keywords, grade_company, grade, year, manufacturer, user_id)
 		c=EbayConnect.new(EBAY_APP_ID_KEY)
-		puts grade_company
-		puts grade
-		puts user_id
 		allCards = Array.new
 		search_query = keywords + " " + grade_company + " " + grade + " " + year + " " + manufacturer
 		results = c.find_items_by_keywords("#{search_query}", 100)

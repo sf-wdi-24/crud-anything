@@ -3,12 +3,15 @@
 		<%= text_field_tag :search, params[:search], placeholder: "Player", class: "form-control" %>
 		<%= text_field_tag :year, params[:year], placeholder: "Year", class: "form-control" %>
 		<%= text_field_tag :manufacturer, params[:manufacturer], placeholder: "Manufacturer", class: "form-control" %>
-		<%= text_field_tag :grade_company, params[:grade_company], placeholder: "Grade Company", class: "form-control" %>
+		PSA<%= radio_button_tag :grade_company, 'PSA' %>
+		BGS<%= radio_button_tag :grade_company, 'BGS' %>
+		BVG<%= radio_button_tag :grade_company, 'BVG' %>
 		<%= text_field_tag :grade, params[:grade], placeholder: "Grade", class: "form-control" %>
 		<%= submit_tag "Search", class: "btn btn-default" %>
 	<% end %>
 </form>
 <br>
+PSA, BGS, BVG, BCCG, GAI, SGC
 <% if @results.present? %>
 	<%= form_tag(search_queries_path, :method => "post", id: "search-form-post") do %>
 		<%= hidden_field_tag :search, params[:search] %>
