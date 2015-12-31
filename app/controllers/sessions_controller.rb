@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def new
     if current_user
       redirect_to user_path(current_user)
-      flash[:error] = "You are alredy logged in."
+      flash[:error] = 'You are alredy logged in.'
     else
       render :new
     end
@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     @user = User.find_by_email(params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id 
-      flash[:notice] = "Welcome Back"
+      flash[:notice] = 'Welcome Back'
       redirect_to user_path(current_user)
     else
       flash[:error] = 'Incorrect email or password'
