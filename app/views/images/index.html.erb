@@ -1,5 +1,6 @@
 <hr>
 <% @images.each do |image| %>
-  <strong><%= image.title %></strong> - <%= link_to "View Image", trip_image_path(@trip, image) %>
+	<p><%= image_tag image.attachment.url(:thumb) %></p>
+	<strong><%= image.title %></strong> - <%= link_to "View Image", image_path(image) %>
   <hr>
 <% end %>

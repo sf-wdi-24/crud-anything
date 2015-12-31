@@ -3,7 +3,9 @@ class ImagesController < ApplicationController
 	before_filter :get_trip
 
 	def get_trip
-		@trip = Trip.find(params[:trip_id])
+		if params.has_key?(:trip_id)
+			@trip = Trip.find(params[:trip_id])
+		end
 	end
 
 	def index
@@ -19,10 +21,10 @@ class ImagesController < ApplicationController
 		@image.trip = @trip
 
 		if @image.save
-			redirect_to trip_image_path(@trip, @image)
+			redirect_to trip_path(@trip)
 		else
 			flash[:error] = @image.errors.full_messages.join(", ")
-			redirect_to new_trip_image_path
+			redirect_to new_trip_image_path(@trip)
 		end
 	end
 
@@ -59,7 +61,11 @@ class ImagesController < ApplicationController
 
 		@image.destroy
 		flash[:notice] = "Successfully deleted image."
-		redirect_to trip_path(@trip)
+		if @trip
+			redirect_to trip_path(@trip)
+		else
+			redirect_to images_path
+		end
 	end
 
 	private
