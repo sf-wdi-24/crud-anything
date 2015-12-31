@@ -11,15 +11,21 @@
     </div>
     <div class="navbar-collapse collapse" id="bs-navbar">
       <ul class="nav navbar-nav pull-right">
+      <% if current_user %>
         <li>
-          <a class="page-scroll" href="#one">Gallery</a>
+          <%= link_to current_user.username, user_path(current_user) %>
         </li>
         <li>
-          <a class="page-scroll" href="#two">Features</a>
+        <%= link_to 'Gallery', photos_path %>
+        </li>
+      <% else %>
+        <li>
+          <a class="page-scroll" href="#one">Example</a>
         </li>
         <li>
-          <a class="page-scroll" href="#three">Contact</a>
+          <a class="page-scroll" href="#two">Try now</a>
         </li>
+      <% end %>
       </ul>
     </div>
   </div>

@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require lightbox
 //= require bootstrap-sprockets
 
 
@@ -38,6 +39,13 @@ $(function () {
 $('.alert').delay(3000).fadeOut('slow')
 
 
+$('a.page-scroll').bind('click', function(event) {
+    var $ele = $(this);
+    $('html, body').stop().animate({
+        scrollTop: ($($ele.attr('href')).offset().top - 60)
+    }, 1450, 'easeInOutExpo');
+    event.preventDefault();
+  });
 $('#galleryModal').on('show.bs.modal', function (e) {
    $('#galleryImage').attr("src",$(e.relatedTarget).data("src"));
 });

@@ -6,7 +6,7 @@
       <h4>Share with the world</h4>
       <hr>
       <br><br><br>
-      <%= link_to '#one' do %>
+      <%= link_to '#one', class:'page-scroll' do %>
           <i class='fa fa-angle-double-down' style='font-size: 60px; color: white;'></i>
         <% end %>
     </div>
@@ -20,7 +20,7 @@
     <div class='row no-gutter'>
     <% @photos.each do |photo|  %>
       <div class='col-lg-4 col-sm-6'>
-      <a href='#galleryModal' class='gallery-box' data-toggle='modal' data-src='<%= image_tag photo.photo.normal.url.to_s %>'>
+      <a href='<%= photo.photo.normal.url.to_s %>' class='gallery-box' data-lightbox='my-photos' data-title='<%= photo.title %>'>
         <%= image_tag photo.photo.welcome.url.to_s, class:'img-responsive' %>
             <div class='gallery-box-caption'>
               <div class='gallery-box-content'>
