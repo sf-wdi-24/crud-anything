@@ -1,5 +1,5 @@
 <% @trips.each do |trip| %>
-	<div class="panel">
+	<div class="panel well">
 		<h3><%= link_to trip.name, trip %></h3>
 		<p><%= trip.description %></p>
 		<p><%= link_to "Edit", edit_trip_path(trip) %>

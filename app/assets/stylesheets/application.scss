@@ -1,0 +1,18 @@
+$border-radius-base: 0;
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "images";
+@import "posts";
+@import "trips";
+
+ .jumbotron {
+	background-image: url(/assets/background.jpeg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center 88%;
+    color: #3699CA;
+    padding-left: 10px;
+    margin-bottom: 0px;
+ }
