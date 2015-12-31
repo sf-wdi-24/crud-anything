@@ -16,7 +16,7 @@ class EbayApiCall
 			#user id
 			singleCard['user_id'] = user_id
 			#search query
-			singleCard['search_query'] = keywords + " |*| " + grade_company
+			singleCard['search_query'] = keywords + " |*| " + grade_company + " |*| " + grade + " |*| " + year + " |*| " + manufacturer
 			#itemId
 			singleCard['itemId'] = c.itemId[0].to_i
 			#title
@@ -35,6 +35,8 @@ class EbayApiCall
 			singleCard['currency'] =  c.sellingStatus[0]['convertedCurrentPrice'][0]['@currencyId'].to_s
 			#price (value) converted to USD
 			singleCard['price'] =  c.sellingStatus[0]['convertedCurrentPrice'][0]['__value__'][0].to_i
+			puts c.sellingStatus[0]['convertedCurrentPrice'][0]
+			puts c.sellingStatus[0]['convertedCurrentPrice'][0]['__value__']
 			#number of bids
 			singleCard['numberBids'] =  c.sellingStatus[0]['bidCount'][0].to_i if c.sellingStatus[0]['bidCount'] != nil
 			#current status ('active' or...)

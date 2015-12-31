@@ -1,11 +1,13 @@
-<%= form_tag(search_queries_path, :method => "get", id: "search-form-get") do %>
-	<%= text_field_tag :search, params[:search], placeholder: "Player" %>
-	<%= text_field_tag :year, params[:year], placeholder: "Year" %>
-	<%= text_field_tag :manufacturer, params[:manufacturer], placeholder: "Manufacturer" %>
-	<%= text_field_tag :grade_company, params[:grade_company], placeholder: "Grade Company" %>
-	<%= text_field_tag :grade, params[:grade], placeholder: "Grade" %>
-	<%= submit_tag "Search" %>
-<% end %>
+<form class="form-inline">
+	<%= form_tag(search_queries_path, :method => "get", id: "search-form-get") do %>
+		<%= text_field_tag :search, params[:search], placeholder: "Player", class: "form-control" %>
+		<%= text_field_tag :year, params[:year], placeholder: "Year", class: "form-control" %>
+		<%= text_field_tag :manufacturer, params[:manufacturer], placeholder: "Manufacturer", class: "form-control" %>
+		<%= text_field_tag :grade_company, params[:grade_company], placeholder: "Grade Company", class: "form-control" %>
+		<%= text_field_tag :grade, params[:grade], placeholder: "Grade", class: "form-control" %>
+		<%= submit_tag "Search", class: "btn btn-default" %>
+	<% end %>
+</form>
 <br>
 <% if @results.present? %>
 	<%= form_tag(search_queries_path, :method => "post", id: "search-form-post") do %>
@@ -14,13 +16,22 @@
 		<%= hidden_field_tag :grade, params[:grade] %>
 		<%= hidden_field_tag :year, params[:year] %>
 		<%= hidden_field_tag :manufacturer, params[:manufacturer] %>
-		<%= submit_tag "Save Query" %>
+		<%= submit_tag "Save Query", class: "btn btn-default" %>
 	<% end %>
 	<br><br>
 	<% @results.each do |c| %>
-		<% (c.map{ |k,v| "#{k}: #{v}" }.sort).each do |x| %>
-			<%= x %><br>
-		<% end %>
+		<div class="thumbnail">
+		<div class="row">
+			<div class="col-xs-2">
+			<%= image_tag c['imageUrl'] %>
+			</div>
+			<div class="col-xs-6">
+			<% (c.map{ |k,v| "#{k}: #{v}" }.sort).each do |x| %>
+				<%= x %><br>
+			<% end %>
+			</div>
+		</div>
+		</div>
 		<br><br>
 	<% end %>
 <% end %>
