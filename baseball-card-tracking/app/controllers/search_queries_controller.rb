@@ -6,15 +6,15 @@ class SearchQueriesController < ApplicationController
   end
 
   def index
-    if params[:search]
-      @results = apiSearch(params[:search], params[:grade_company], params[:grade], params[:year], params[:manufacturer])
+    if params[:player]
+      @results = apiSearch(params[:player], params[:grade_company], params[:grade], params[:year], params[:manufacturer])
     else
       @results = nil
     end
   end
 
   def create
-    search_query = SearchQuery.new(player: params[:search], grade_company: params[:grade_company], grade: params[:grade], year: params[:year], manufacturer: params[:manufacturer])
+    search_query = SearchQuery.new(player: params[:player], grade_company: params[:grade_company], grade: params[:grade], year: params[:year], manufacturer: params[:manufacturer])
     search_query.user_id = current_user.id
     if search_query.save
       redirect_to user_path(current_user)

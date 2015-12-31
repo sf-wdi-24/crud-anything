@@ -1,6 +1,6 @@
 <form class="form-inline">
 	<%= form_tag(search_queries_path, :method => "get", id: "search-form-get") do %>
-		<%= text_field_tag :search, params[:search], placeholder: "Player", class: "form-control" %>
+		<%= text_field_tag :player, params[:player], placeholder: "Player", class: "form-control" %>
 		<%= text_field_tag :year, params[:year], placeholder: "Year", class: "form-control" %>
 		<%= text_field_tag :manufacturer, params[:manufacturer], placeholder: "Manufacturer", class: "form-control" %>
 		PSA<%= radio_button_tag :grade_company, 'PSA' %>
@@ -11,16 +11,17 @@
 	<% end %>
 </form>
 <br>
-PSA, BGS, BVG, BCCG, GAI, SGC
 <% if @results.present? %>
 	<%= form_tag(search_queries_path, :method => "post", id: "search-form-post") do %>
-		<%= hidden_field_tag :search, params[:search] %>
+		<%= hidden_field_tag :player, params[:player] %>
 		<%= hidden_field_tag :grade_company, params[:grade_company] %>
 		<%= hidden_field_tag :grade, params[:grade] %>
 		<%= hidden_field_tag :year, params[:year] %>
 		<%= hidden_field_tag :manufacturer, params[:manufacturer] %>
 		<%= submit_tag "Save Query", class: "btn btn-default" %>
 	<% end %>
+	<br>
+	<%= "Total Results: #{@results.count} " %>
 	<br><br>
 	<% @results.each do |c| %>
 		<div class="thumbnail">
