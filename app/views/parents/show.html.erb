@@ -25,7 +25,11 @@
 			<% end %>
 			<div class="divider"></div>
 			<button class="waves-effect waves-light btn"><%= link_to "Update Account", edit_parent_path(@parent) %></button>
+			<% if @parent.children.any? %>
 			<button class="waves-effect waves-light btn"><%= link_to "Add another Child", new_child_path %></button>
+			<% else %>
+			<button class="waves-effect waves-light btn"><%= link_to "Add a Child", new_child_path %></button>
+			<% end %>
 		<% else %>
 			<h1>Sorry you are not logged in</h1>
 		<% end %>
