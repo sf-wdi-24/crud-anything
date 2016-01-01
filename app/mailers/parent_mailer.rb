@@ -3,7 +3,14 @@ class ParentMailer < ApplicationMailer
 
 	def welcome_email(parent)
 		@parent = parent
-		@url = 'http://localhost:3000/parents/new'
 		mail(to: @parent.email, subject: 'Welcome to ReMemories')
 	end
+
+	def memory_mailer(parent, child, memory)
+		@parent = parent
+		@child = child
+		@memory = memory
+		mail(to: @parent.email, subject: "Memory for #{@child.child_first_name}")
+	end
+
 end

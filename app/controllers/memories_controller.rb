@@ -13,9 +13,12 @@ class MemoriesController < ApplicationController
   end
 
   def create
-  	@memory = Memory.new(memory_params)
+  	@memory = current_parent.memories.new(memory_params)
   	if @memory.save
   		flash[:notice] = "You have added a memory"
+      if @memory.send_email
+        ParentMailer.delay(run_at: 1.minutes.from_now).memory_mailer(current_parent, @child, @memory)
+      end
   		redirect_to child_path(memory_params[:child_id])
   	else
   		flash[:error] = @memory.errors.full_messages.join(", ")
@@ -34,6 +37,9 @@ class MemoriesController < ApplicationController
   def update
 		if @memory.update_attributes(memory_params)
 			flash[:notice] = "You have updated #{@child.child_first_name}'s information"
+      if @memory.send_email
+        ParentMailer.delay(run_at: 1.minutes.from_now).memory_mailer(current_parent, @child, @memory)
+      end
 			redirect_to child_path(@child)
 		else
 			flash[:error] = @child.errors.full_messages.join(", ")
@@ -59,7 +65,7 @@ class MemoriesController < ApplicationController
   end
 
   def memory_params	
-  	params.require(:memory).permit(:memory_date, :memory_description, :child_id)
+  	params.require(:memory).permit(:memory_date, :memory_description, :child_id, :send_email, :send_date)
   end
 
 end

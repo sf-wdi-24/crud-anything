@@ -19,7 +19,9 @@ $(document).ready(function() {
 	$('.newMemory').hide();
 
 	$('.addNewMemory').click( function(event) {
+		$('.child_memories').toggle();
 		$('.newMemory').toggle();
+
 	});
   
   setTimeout(function() {

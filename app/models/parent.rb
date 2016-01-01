@@ -5,6 +5,8 @@ class Parent < ActiveRecord::Base
 	# DB relationship for Parents having many Children
 	has_many :children, dependent: :destroy
 
+	has_many :memories
+
 	# Validations for Parents
 	validates :email,
 		presence: true,
