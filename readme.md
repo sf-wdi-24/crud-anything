@@ -1,3 +1,3 @@
-# Rememories
+# ReMemories
 
-A way for parents to send themselves reminders of their childrens' milstones/accomplishments a year later
+A way for parents to send themselves reminders milestones and accomplishments for their kids at a later time.
