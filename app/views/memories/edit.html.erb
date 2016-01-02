@@ -17,9 +17,9 @@
 			<%= f.label :send_email, "Send Email" %>
 			</div>
 			<div class="input-field col s12">
-				<%= f.label :send_date, "Date you would like to be reminded" %>
+				<%= f.label :email_date, "Date you would like to be reminded" %>
 				<br>
-				<%= f.date_field :send_date%>
+				<%= f.date_field :email_date%>
 			</div>
 			<div class="hidden">
 				<%= f.hidden_field :child_id, value: @child.id %>

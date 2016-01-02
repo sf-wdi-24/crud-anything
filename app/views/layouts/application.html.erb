@@ -3,13 +3,12 @@
 <head>
   <title>ReMemories</title>
   <%= stylesheet_link_tag    'application'%>
-  <%= javascript_include_tag 'application'%>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 	<div class="row">
-		<nav class="col s12">
+		<nav class="col s12 z-depth-4">
 			<div class="center">
 				<div class="col s6">
 					<%= link_to "ReMemories", root_path, class: "waves-effect waves-light btn" %>
@@ -30,13 +29,13 @@
 	<div class="row">
 	<% flash.each do |alert, message| %>
 		<div class="flash_<%= alert %> col s12">
-			<h3 class="col s10 offset-s1"><%= message %></h3>
+			<h5 class="col s10 offset-s1"><%= message %></h5>
 		</div>
 	<% end %>
 	</div>
 <div class="container">
 	<%= yield %>
 </div>
-
+<%= javascript_include_tag 'application'%>
 </body>
 </html>

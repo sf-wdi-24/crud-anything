@@ -2,25 +2,5 @@
 	<div class="col s12	">
 		<h1>Update your Account</h1>
 	</div>
-	<%= form_for @parent do |f| %>
-	<div class="input-field col s12">
-		<%= f.label :email, "Email Address" %>
-		<%= f.email_field :email, placeholder: "example@email.com", autofocus: true %>
-	</div>
-	<div class="input-field col s12">
-		<%= f.label :parent_first_name, "First Name" %>
-		<%= f.text_field :parent_first_name %>
-	</div>
-	<div class="input-field col s12">
-		<%= f.label :parent_last_name, "Last Name" %>
-		<%= f.text_field :parent_last_name %>
-	</div>
-	<div class="input-field col s12">
-		<%= f.label :password, "Password" %>
-		<%= f.password_field :password %>
-	</div>
-	<div class="input-field col s12">
-		<%= f.submit "Update Account", class: "waves-effect waves-light btn" %>
-	</div>
-	<% end %>
+	<%= render "form" %>
 </div>

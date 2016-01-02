@@ -23,7 +23,7 @@ class ParentsController < ApplicationController
 			if @parent.save
 				session[:parent_id] = @parent.id
 				flash[:notice] = "You have successfully created an account"
-        ParentMailer.delay(run_at: 2.minutes.from_now).welcome_email(@parent)
+        ParentMailer.delay(run_at: 1.minutes.from_now).welcome_email(@parent)
 				redirect_to parent_path(@parent)
 			else
 				flash[:error] = @parent.errors.full_messages.join(", ")

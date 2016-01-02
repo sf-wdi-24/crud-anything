@@ -21,18 +21,17 @@
 				<%= f.date_field :memory_date%>
 			</div>
 			<div class="input-field col s12">
-				<%= f.label :memory_description, "Description" %>
+				<%= f.label :memory_description, " Description" %>
 				<%= f.text_area :memory_description%>
 			</div>
 			<h5>Would you like to be reminded of this milestone later?</h5>
 			<div class="input-field col s12">
-			<%= f.check_box :send_email, class: "with-gap" %>
-			<%= f.label :send_email, "Send Email" %>
+				<%= f.check_box :send_email, class: "with-gap" %>
+				<%= f.label :send_email, "Send Email" %>
 			</div>
 			<div class="input-field col s12">
-				<%= f.label :send_date, "Date you would like to be reminded" %>
-				<br>
-				<%= f.date_field :send_date%>
+				<p>How far into the future would you like to reminded?</p>
+				<%= f.select :email_date, options_for_select([["Days", "days"], ["Months", "months"], ["Years", "years"]]), prompt: "Select One" %>
 			</div>
 			<div class="hidden">
 				<%= f.hidden_field :child_id, value: @child.id %>

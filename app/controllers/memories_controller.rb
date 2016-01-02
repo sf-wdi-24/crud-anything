@@ -14,10 +14,11 @@ class MemoriesController < ApplicationController
 
   def create
   	@memory = current_parent.memories.new(memory_params)
+    @child = memory_params[:child_id]
   	if @memory.save
   		flash[:notice] = "You have added a memory"
       if @memory.send_email
-        ParentMailer.delay(run_at: 1.minutes.from_now).memory_mailer(current_parent, @child, @memory)
+        ParentMailer.delay(run_at: "#{memory_params[:memory_date]}").memory_mailer(current_parent, @child, @memory)
       end
   		redirect_to child_path(memory_params[:child_id])
   	else

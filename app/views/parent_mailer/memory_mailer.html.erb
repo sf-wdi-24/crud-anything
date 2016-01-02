@@ -5,7 +5,7 @@
 </head>
 <body>
 	<h1>Memory reminder for <%= @child.child_first_name %></h1>
-	<p><%= @memory.memory_description %> happened on <%= @memory.memory_date %></p>
+	<p><%= @memory.memory_description %> happened on <%= @memory.memory_date.strftime("%B %d, %Y") %></p>
 	<br><br>
 	<p>Thanks for using ReMemories</p>
 </body>
