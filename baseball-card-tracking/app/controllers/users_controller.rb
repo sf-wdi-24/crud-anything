@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   before_filter :authorize, except: [:new, :create]
-  before_filter :current_user_logged_in, except: [:index, :show, :edit, :show_user_cards, :show_user_search_queries]
+  before_filter :current_user_logged_in, except: [:index, :show, :edit, :show_user_cards, :show_user_search_queries, :show_user_search_query]
 
   def index
     @users = User.all
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @searchQueries = SearchQuery.where(user_id: @user.id)
+    @searchQuery = SearchQuery.where(user_id: @user.id)
     @cards = Card.where(user_id: @user.id)
   end
 
@@ -37,6 +37,35 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @searchQueries = SearchQuery.where(user_id: @user.id)
     @cards = Card.where(user_id: @user.id)
+  end
+
+  def show_user_search_query
+    @searchQuery = SearchQuery.find(params[:id])
+    @user_id = @searchQuery.user_id
+    @cards = Card.where(user_id: @user_id)
+    @cards_for_chart = Card.where(user_id: @user_id).group(:price).count(:id)
+    cards_chart_array = []
+    @cards_for_chart.each do |x|
+      cards_chart_array.push([x[0],x[1]])
+    end
+
+    data_table = GoogleVisualr::DataTable.new
+
+    # Add Column Headers
+    data_table.new_column('number', 'Count' )
+    data_table.new_column('number', 'Price')
+
+    # Add Rows and Values
+    # data_table.add_rows([
+    #     [1000, 400],
+    #     [1170, 460],
+    #     [660, 1120],
+    #     [1030, 540]
+    # ])
+    data_table.add_rows(cards_chart_array)
+
+    option = { width: 400, height: 240, title: 'title' }
+    @cards_chart = GoogleVisualr::Interactive::AreaChart.new(data_table, option)
   end
 
   def edit
