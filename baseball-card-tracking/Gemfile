@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'json'
 gem 'bootstrap-sass'
 gem "google_visualr", ">= 2.5"
+gem 'delayed_job_active_record'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
