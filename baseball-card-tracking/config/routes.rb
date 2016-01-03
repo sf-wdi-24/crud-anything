@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 	get '/search' => 'search_queries#index', as: "search_queries"
 	post '/search' => 'search_queries#create'
 
+	get '/settings' => 'users#edit', as: "edit_user"
+	put '/settings' => 'users#update'
+	delete '/settings' => 'users#destroy', :as => "destroy_user"
+
 	get '/users/:id/cards' => 'users#show_user_cards', as: "user_cards"
 	delete '/users/:id/cards' => 'cards#destroy', as: "delete_single_card"
 

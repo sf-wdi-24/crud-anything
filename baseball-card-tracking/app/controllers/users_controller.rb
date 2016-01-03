@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   before_filter :authorize, except: [:new, :create]
-  before_filter :current_user_logged_in, except: [:index, :show, :edit, :show_user_cards, :show_user_search_queries, :show_user_search_query]
+  before_filter :current_user_logged_in, except: [:index, :show, :edit, :update, :show_user_cards, :show_user_search_queries, :show_user_search_query]
 
   def index
     @users = User.all
@@ -26,6 +26,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @searchQueries = SearchQuery.where(user_id: @user.id)
     @cards = Card.where(user_id: @user.id)
+    @card_links = Card.where(user_id: @user.id).limit(150).pluck(:imageUrl)
   end
 
   def show_user_cards
@@ -82,9 +83,11 @@ class UsersController < ApplicationController
   end
 
   def update
+    puts "inside update"
     @user = current_user
     user_params = params.require(:user).permit(:name, :email, :password)
     if @user.update_attributes(user_params)
+      puts "saved"
       redirect_to user_path(@user)
     else
       flash[:error] = @user.errors.full_messages.join(", ")

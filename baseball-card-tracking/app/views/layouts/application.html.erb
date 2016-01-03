@@ -18,13 +18,12 @@
 		  <li><%= link_to "Saved Searches", user_searches_path(current_user) %></li>
 		  <li><%= link_to "Cards", user_cards_path(current_user) %></li>
 	  <% end %>
-	  <li>
 		<% if current_user %>
-			<%= link_to "Logout", '/logout' %>
+			<li><%= link_to "Settings", '/settings' %></li>
+			<li><%= link_to "Logout", '/logout' %></li>
 		<% else %>
-			<%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+			<li><%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %></li>
 		<% end %>
-	  </li>
 	</ol>
   </div>
 </nav>

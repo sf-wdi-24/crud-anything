@@ -1,3 +1,4 @@
 task :auto_refresh => :environment do
-	SearchQuery.auto_refresh
+	puts "inside rake"
+	SearchQuery.delay.auto_refresh
 end

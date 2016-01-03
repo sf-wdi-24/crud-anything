@@ -29,6 +29,12 @@ body {
 	margin-bottom: 0px;
 }
 
+.thumbnail.grid {
+	max-width: 150px;
+	height: 200px;
+	display: inline-block;
+}
+
 #delete-glyphicon {
 	color: black;
 }
