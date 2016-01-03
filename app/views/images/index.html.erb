@@ -1,4 +1,5 @@
 <hr>
+<p>Image Gallery</p>
 <% @images.each do |image| %>
 	<p><%= image_tag image.attachment.url(:thumb) %></p>
 	<strong><%= image.title %></strong> - <%= link_to "View Image", image_path(image) %>

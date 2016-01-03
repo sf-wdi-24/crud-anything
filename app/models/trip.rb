@@ -6,5 +6,5 @@ class Trip < ActiveRecord::Base
 
 	validates :description, presence: true, length: { minimum: 5 }
 
-	validates :attachment, presence: true
+
 end
