@@ -1,4 +1,4 @@
-<%= "#{@user.name}'s Profile" %>
+<b><%= "#{@user.name.capitalize}'s Profile" %></b>
 <br>
 <%= "Saved Search Queries (tracked daily): " %><%= link_to @searchQueries.length, user_searches_path %>
 <br>

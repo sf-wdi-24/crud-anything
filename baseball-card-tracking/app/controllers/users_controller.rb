@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @searchQuery = SearchQuery.where(user_id: @user.id)
+    @searchQueries = SearchQuery.where(user_id: @user.id)
     @cards = Card.where(user_id: @user.id)
   end
 
