@@ -1,6 +1,7 @@
-<% @card_groupings.each do |search, values| %>
+
+<% @card_groupings.each do |id, values| %>
 	<br>
-	<b><%= "Search: #{search.split("|*|").join(" ")}" %></b><br>
+	<b><%= "Search: " %><%= @card_search_query[id][0]['search_query'] %></b><br>
 	<% values.sort_by{|v| v.price}.each do |v| %>
 		<li><%= "Sold for $#{v.price} on #{v.endTime} after #{v.numberBids || 0} bids - " %><%= link_to v.title, v.url %>
 		<%= link_to delete_single_card_path(v.id), :method => "delete" do %>

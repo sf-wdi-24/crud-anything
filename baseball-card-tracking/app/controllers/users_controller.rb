@@ -30,7 +30,8 @@ class UsersController < ApplicationController
 
   def show_user_cards
     @user = User.find(params[:id])
-    @card_groupings = Card.where(user_id: @user.id).group_by {|c| c.searchQueryString}
+    @card_groupings = Card.where(user_id: @user.id).group_by {|c| c.search_query_id}
+    @card_search_query = SearchQuery.where(user_id: @user.id).group_by {|c| c.id}
   end
 
   def show_user_search_queries
@@ -43,29 +44,37 @@ class UsersController < ApplicationController
     @searchQuery = SearchQuery.find(params[:id])
     @user_id = @searchQuery.user_id
     @cards = Card.where(user_id: @user_id)
-    @cards_for_chart = Card.where(user_id: @user_id).group(:price).count(:id)
-    cards_chart_array = []
-    @cards_for_chart.each do |x|
-      cards_chart_array.push([x[0],x[1]])
+    @cards_for_column_chart = Card.where(user_id: @user_id).where(search_query_id: @searchQuery.id).group(:price).count(:id).sort_by { |k,v| k }
+    array = Array.new
+    @cards_for_column_chart.each do |p, ts|
+        array.push(["#{p}", ts])
     end
-
     data_table = GoogleVisualr::DataTable.new
 
     # Add Column Headers
-    data_table.new_column('number', 'Count' )
-    data_table.new_column('number', 'Price')
+    data_table.new_column('string', 'Price' )
+    data_table.new_column('number', 'Total Sold')
 
     # Add Rows and Values
-    # data_table.add_rows([
-    #     [1000, 400],
-    #     [1170, 460],
-    #     [660, 1120],
-    #     [1030, 540]
-    # ])
-    data_table.add_rows(cards_chart_array)
+    data_table.add_rows(
+      array
+    )
 
-    option = { width: 400, height: 240, title: 'title' }
-    @cards_chart = GoogleVisualr::Interactive::AreaChart.new(data_table, option)
+    option = { width: 1200, height: 240, colors:['#c33838'], :legend => "none",
+      :backgroundColor => '#f8f8f8',
+      title: "Total '#{@searchQuery.search_query}' Cards Sold at Respective Prices",
+      hAxis: {
+          format: 'currency',
+          title: "Price",
+          baselineColor: "none",
+          gridlines: {color: "#f8f8f8"}
+        },
+        vAxis: {
+          baselineColor: "#f8f8f8",
+          gridlines: {color: "#f6f6f6"}
+        }
+      }
+    @cards_column_chart = GoogleVisualr::Interactive::ColumnChart.new(data_table, option)
   end
 
   def edit

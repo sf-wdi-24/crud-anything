@@ -20,6 +20,7 @@ body {
 	margin-top: 30px;
 	margin-left: 50px;
 	margin-right: 50px;
+	background-color: #f8f8f8;
 }
 
 #nav-links {
@@ -30,4 +31,12 @@ body {
 
 #delete-glyphicon {
 	color: black;
+}
+
+#cards_column_chart {
+	margin-left: -100px;
+}
+
+#cards_scatter_chart {
+	margin-left: -100px;
 }
