@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Authtest</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= analytics_init if Rails.env.production? %>
+</head>
+<body>
+<% if current_user %>
+	<p> signin as: <%= current_user.name%>
+	<%= link_to "Logout", "sign_out", method: :delete %>
+	<h1 id="count">0</h1>
+	<h1>people are watching</h1>
+	<%= form_for :message, :url=> message_index_path do |f| %>
+	<%= f.text_field :line %>   
+	<%= f.submit "Send" %>
+	<% end %>
+	<h1><a href="https://github.com/parkeristyping/whoswatching">Github</a></h1>
+
+<% else %>
+	<%= link_to "auth/facebook" do %><p>FACEBOOK</p><% end %>
+<% end %>
+<% flash.each do |key, value| %>
+	<div><% value %></div>
+<% end %>
+<%= yield %>
+
+</body>
+</html>
