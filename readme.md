@@ -6,3 +6,9 @@ TripIt-app is a quick and easy way to share trip highlights with friends and fam
 [https://tripit-app.herokuapp.com](https://tripit-app.herokuapp.com)
 
 ![](screenshot.png)
+
+## Gems used
+
+* Google Analytics Rails
+* Paperclip
+* Bootstrap Sass
