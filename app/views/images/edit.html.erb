@@ -1,0 +1,13 @@
+<div class="col-md-6 col-centered">
+	<h2>Edit Image</h2>
+	<hr>
+	<%= form_for @image, url: image_path(@image), html: { multipart: true } do |f| %>
+		<%= f.label :title %>
+		<p><%= f.text_field :title, placeholder: "Image title", class: "form-control", autofocus: true %></p>
+		<%= f.label :image %>
+		<p><%= f.file_field :attachment %></p>
+	   <div class="submit">
+	  <%= f.submit "Save Image" %>
+	  </div>
+	<% end %>
+</div>

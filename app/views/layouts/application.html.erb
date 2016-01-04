@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TripitApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= analytics_init :local => Rails.env.development? %>
+</head>
+<body>
+	<div class="col-md-8 col-centered">
+		<div class="jumbotron">
+	  		<h1><strong><a href="/">Trip-It!</a></strong></h1>
+	  		<p></p>
+	  		<p></p>
+		</div>
+		<nav class="navbar navbar-default tripit-header-navbar">
+		    <div class="container-fluid">
+		     <!-- Brand and toggle get grouped for better mobile display -->
+		      	<!-- Collect the nav links, forms, and other content for toggling -->
+		      	<ul class="nav navbar-nav navbar-left">
+		          	<li><%= link_to "View Trips", trips_path %></li>
+					<li><%= link_to "Image Gallery", images_path %></li>
+					<li><%= link_to "Add Trip", new_trip_path %></li>
+		      	</ul>
+			</div><!-- /.container-fluid -->
+		</nav>
+		<%= yield %>
+	</div>
+</body>
+</html>
