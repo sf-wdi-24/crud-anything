@@ -1,19 +1,31 @@
 body {
-	background-color: #051647;
+	background-color: #7D2343;
+	padding-top: 50px;
 }
 
 h1 {
 	color: white;
 }
 
-
-nav {
-	background-color: #FF5830;
+a {
+	font-size: 18px;
+	color: #7D2343;
+	text-decoration: none;
 }
 
-
 a:hover {
-	color: #FF5830;
+	color: #BD280F;
+}
+
+.navbar {
+	padding: 10px;
+	color: white;
+	background-color: #BD280F;
+}
+
+.navbar-default {
+  background-color: #BD280F;
+  border: none;
 }
 
 .formbox {
@@ -23,7 +35,7 @@ a:hover {
 	background-color: white;
 	padding: 20px;
 	padding-top: 0px;
-	border: 5px solid #FF5830;
+	border: 5px solid #BD280F;
 }
 
 .pull-right {
@@ -36,21 +48,21 @@ a:hover {
 
 .btn {
 	color: white;
-	background-color: #FF5830;
+	background-color: #BD280F;
 }
 
 .box {
 	color: white;
-	background-color: #051647;
+	background-color: #7D2343;
 	padding-top: 15px;
 	margin: -15px;
-	margin-top: 20px;
+	margin-top: 0px;
 	height: 300px;
 	text-align: center;
 }
 
 .alert {
-	background-color: #FF5830;
+	background-color: #BD280F;
 	color: white;
 }
 
@@ -58,7 +70,3 @@ a:hover {
 	margin-left: -15px;
 }
 
-.navbar {
-	color: white;
-	background-color: #FF5830;
-}

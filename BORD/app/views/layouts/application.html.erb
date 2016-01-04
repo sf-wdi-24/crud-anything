@@ -7,18 +7,21 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-		<div class="container">
-				<% if user_signed_in? %>
-				<div class="pull-right">
-					<%= link_to('Logout', destroy_user_session_path, :method => :delete) %> | 
-					<%= link_to('Edit Profile', edit_user_registration_path) %>
-				</div>
-				<% else %>
-				<div class="pull-right">
-					<%= link_to('Login', new_user_session_path)  %>
-				</div>
-				<% end %>
-		</div>
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="pull-left">
+				<%= link_to('BORD Home', root_path) %>
+			</div>
+			<% if user_signed_in? %>
+			<div class="pull-right">
+				<%= link_to('Logout', destroy_user_session_path, :method => :delete) %> |
+				<%= link_to('Edit Profile', edit_user_registration_path) %>
+			</div>
+			<% else %>
+			<div class="pull-right">
+				<%= link_to('Login', new_user_session_path)  %>
+			</div>
+			<% end %>
+		</nav>
 		<div class="container">
 			<% flash.each do |key, value| %>
 			<div class="alert alert-<%=key %>">
@@ -27,10 +30,8 @@
 			<% end %>
 		</div>
 		<%= yield :top_content %>
-		<div class="container">
-			<h1><%= yield :header %></h1>
-			<%= yield %>
-		</div>
+		<h1><%= yield :header %></h1>
+		<%= yield %>
 		
 	</body>
 </html>
