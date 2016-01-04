@@ -47,10 +47,10 @@ class ImagesController < ApplicationController
 
 		if @image.update_attributes(image_params)
 			flash[:notice] = "Successfully updated image."
-			redirect_to trip_image_path(@trip, @image)
+			redirect_to image_path(@image)
 		else
 			flash[:notice] = @image.errors.full_messages.join(", ")
-			redirect_to edit_trip_image_path(@trip, @image)
+			redirect_to edit_image_path(@image)
 		end
 	end
 

@@ -1,7 +1,6 @@
-
 <%= form_for @trip do |f| %>
 	<%= label_tag("Name") %>
-	<%= f.text_field :name, placeholder: "Trip name", class: "form-control" %>
+	<%= f.text_field :name, placeholder: "Trip name and date", class: "form-control" %>
 	<br>
 	<%= label_tag("Description")%>
 	<%= f.text_area :description, placeholder: "Add a short summary of your trip", class: "form-control" %>

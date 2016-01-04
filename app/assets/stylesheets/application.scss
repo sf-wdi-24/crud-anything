@@ -1,4 +1,6 @@
+
 $border-radius-base: 0;
+$nav-link-hover-bg: transparent;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "images";
@@ -22,4 +24,26 @@ $border-radius-base: 0;
  	font-family: 'Lato', sans-serif;
  }
 
+ .col-centered {
+ 	float: none;
+ 	margin: 0 auto;
+ }
 
+a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
+}
+
+.tripit-header-navbar {
+	background-color: #FFBB55;
+	border-color: #FFBB55;
+}
+
+.panel-default > .trip-panel-header {
+	background-color: #fcdc9c;
+	border-color: #fcdc9c;
+}
+
+.panel-default > .trip-page-header {
+	background-color: #fcdc9c;
+	border-color: #fcdc9c;
+}

@@ -1,22 +1,32 @@
 <% @trips.each do |trip| %>
-	<div class="panel well">
-		<h3><%= link_to trip.name, trip %></h3>
-		<p><%= trip.description %></p>
-		<p><%= link_to "Edit", edit_trip_path(trip) %>
-		<%= link_to "Delete", trip, method: :delete, data: { confirm: "Are you sure?" } %></p>
-		<p><%= link_to "Add a new Post", new_trip_post_path(trip) %> | 
-		<%= link_to "Add a new Image", new_trip_image_path(trip) %></p>
-		<% trip.posts.each do |post| %>
-			<strong><%= post.title %></strong> - <%= link_to "View Post", trip_post_path(trip, post) %><br>
-		<% end %>
-		<% if trip.images.any? %>
-			<hr>
-			<% trip.images.each do |image| %>
-			<p><%= link_to image.title, image_path(image) %></p>
-			<p><%= image_tag image.attachment.url(:thumb) %></p>
-			<hr>
+	<div class="panel panel-default">
+		<div class="panel-heading trip-panel-header">
+			<h3 class="pull-left"><%= link_to trip.name, trip %></h3>
+			<ul class="nav navbar-nav navbar-right pull-right">
+				<li><%= link_to "Add a new Post", new_trip_post_path(trip) %></li>
+				<li><%= link_to "Add a new Image", new_trip_image_path(trip) %></li>
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+		<div class="panel-body">
+			<p><%= trip.description %></p>
+			<br>
+			<% trip.posts.each do |post| %>
+				<strong><%= post.title %></strong> - <%= link_to "View Post", trip_post_path(trip, post) %><br>
 			<% end %>
-		<% end %>
-		
-	</div>
+			<% if trip.images.any? %>
+				<hr>
+				<% trip.images.in_groups_of(4, false).each do |images| %>
+					<div class="row">
+						<% images.each do |image| %>
+							<div class="col-xs-6 col-sm-3">
+								<p><%= link_to truncate(image.title, length: 30, separator: " "), image_path(image) %></p>
+								<p><%= image_tag image.attachment.url(:thumb) %></p>
+							</div>
+						<% end %>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>	
 <% end %>

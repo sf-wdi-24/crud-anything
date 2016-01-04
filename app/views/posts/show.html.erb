@@ -1,12 +1,11 @@
+<h4><%= link_to @post.trip.name, trip_path(@post.trip) %></h4>
 <h2><%= @post.title %></h2>
-<p><%= link_to @post.trip.name, trip_path(@post.trip) %></p>
-<hr>
-<p><%= simple_format @post.content %></p>
-<p class="small text-muted">
-  Posted <%= time_ago_in_words(@post.created_at) %> ago
-</p>
-  <p>
+	<p>
     <%= link_to "Edit Post", edit_trip_post_path(@trip, @post) %> |
     <%= link_to "Delete Post", trip_post_path(@trip, @post), method: :delete, data: { confirm: 'Are you sure?' } %>
-  </p>
-  <hr>
+  	</p>
+	<p><%= simple_format @post.content %></p>
+	<p class="small text-muted">
+	  Posted <%= time_ago_in_words(@post.created_at) %> ago
+	</p>
+  	<hr>

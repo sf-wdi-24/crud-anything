@@ -1,8 +1,10 @@
+<h4><%= link_to @image.trip.name, trip_path(@image.trip) %></h4>
 <h1><%= @image.title %></h1>
-<p><%= link_to @image.trip.name, trip_path(@image.trip) %></p>
-<%= image_tag @image.attachment.url(:medium) %>
+<p>
+	<%= link_to "Edit Image", edit_image_path(@image) %> |
+	<%= link_to "Delete Image", image_path(@image), method: :delete, data: { confirm: 'Are you sure?' } %>
+</p>
+<%= image_tag @image.attachment.url(:full) %>
 <p class="small text-muted">
   Posted <%= time_ago_in_words(@image.created_at) %> ago
 </p>
-<p><%= link_to "Edit Image", edit_image_path(@image) %> |
-<%= link_to "Delete Image", image_path(@image), method: :delete, data: { confirm: 'Are you sure?' } %></p>

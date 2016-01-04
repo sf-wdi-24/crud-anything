@@ -8,41 +8,24 @@
   <%= analytics_init :local => Rails.env.development? %>
 </head>
 <body>
-	<div class="col-md-2">
+	<div class="col-md-8 col-centered">
+		<div class="jumbotron">
+	  		<h1><strong><a href="/">Trip-It!</a></strong></h1>
+	  		<p></p>
+	  		<p></p>
+		</div>
+		<nav class="navbar navbar-default tripit-header-navbar">
+		    <div class="container-fluid">
+		     <!-- Brand and toggle get grouped for better mobile display -->
+		      	<!-- Collect the nav links, forms, and other content for toggling -->
+		      	<ul class="nav navbar-nav navbar-left">
+		          	<li><%= link_to "View Trips", trips_path %></li>
+					<li><%= link_to "Image Gallery", images_path %></li>
+					<li><%= link_to "Add Trip", new_trip_path %></li>
+		      	</ul>
+			</div><!-- /.container-fluid -->
+		</nav>
+		<%= yield %>
 	</div>
-	<div class="col-md-8">
-	<div class="jumbotron">
-  		<h1><strong>Trip-It!</strong></h1>
-  		<p></p>
-  		<p></p>
-	</div>
-	<nav class="navbar navbar-default">
-	    <div class="container-fluid">
-	     <!-- Brand and toggle get grouped for better mobile display -->
-		    <div class="navbar-header">
-			    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-			          <span class="sr-only">Toggle navigation</span>
-			          <span class="icon-bar"></span>
-			          <span class="icon-bar"></span>
-			          <span class="icon-bar"></span>
-		        </button>
-		      <%= link_to "TripitApp", root_path, class: "navbar-brand" %>
-	      	</div>  
-	      	<!-- Collect the nav links, forms, and other content for toggling -->
-	      	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	        <ul class="nav navbar-nav">
-	      	</ul>
-	      	<ul class="nav navbar-nav navbar-right">
-	      		<li><%= link_to "Add Trip", new_trip_path %></li>
-	          	<li><%= link_to "View Trips", trips_path %></li>
-				<li><%= link_to "Image Gallery", images_path %></li>
-	      	</ul>
-	    	</div><!-- /.navbar-collapse -->
-		</div><!-- /.container-fluid -->
-	</nav>
-<%= yield %>
-</div>
-<div class="col-md-2">
-</div>
 </body>
 </html>

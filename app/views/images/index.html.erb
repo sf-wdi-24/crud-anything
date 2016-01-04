@@ -1,7 +1,13 @@
+<h3>Image Gallery</h3>
 <hr>
-<p>Image Gallery</p>
-<% @images.each do |image| %>
-	<p><%= image_tag image.attachment.url(:thumb) %></p>
-	<strong><%= image.title %></strong> - <%= link_to "View Image", image_path(image) %>
-  <hr>
+<% @images.in_groups_of(2, false).each do |images| %>
+	<div class="row">
+		<% images.each do |image| %>
+			<div class="col-xs-12 col-sm-6">
+				<%= link_to image.title, image_path(image) %>
+				<p><%= image_tag image.attachment.url(:medium) %></p>	
+			</div>
+		<% end %>
+	</div>
+	<hr>
 <% end %>

@@ -1,8 +1,11 @@
 <%= form_for([@trip, @image], url: trip_images_path(@trip), html: { multipart: true }) do |f| %>
-	<div class="field col-md-4">
-  <h3>Add an image</h3>
+	<div class="field col-md-4 col-centered">
+  <h1>Add an image</h1>
+  <hr>
+  <%= f.label :title %>
   <%= f.text_field :title, placeholder: "Image title", class: "form-control", autofocus: true %>
   <br>
+  <%= f.label :image %>
   <%= f.file_field :attachment %>
   <br>
   	<div class="submit">
