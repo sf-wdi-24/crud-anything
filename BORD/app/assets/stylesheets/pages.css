@@ -54,9 +54,9 @@ a:hover {
 .box {
 	color: white;
 	background-color: #7D2343;
-	padding-top: 15px;
+	padding-top: 5px;
 	margin: -15px;
-	margin-top: 0px;
+	margin-top: -25px;
 	height: 300px;
 	text-align: center;
 }
