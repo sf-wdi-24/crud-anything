@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ReMemories</title>
+  <%= stylesheet_link_tag    'application'%>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<div class="row">
+		<nav class="navBar col s12 z-depth-4">
+			<div class="center">
+				<div class="col s6 btn-block">
+					<%= link_to "ReMemories", root_path, class: "home_button all_buttons waves-effect waves-light btn z-depth-2" %>
+				</div>
+				<% if current_parent %>
+				<div class="col s6">
+					<%= link_to "#{current_parent.parent_first_name}'s Profile", parent_path(current_parent), class: "user_buttons all_buttons waves-effect waves-light btn z-depth-2" %>
+					<%= link_to "Logout", logout_path, class: "user_buttons all_buttons waves-effect waves-light btn z-depth-2" %>
+					<% else %>
+					<%= link_to "Sign up", new_parent_path, class: "no_user_buttons all_buttons waves-effect waves-light btn z-depth-2" %>
+					<%= link_to "Login", login_path, class: "no_user_buttons all_buttons waves-effect waves-light btn z-depth-2" %>
+				</div>
+				<% end %>
+			</div>
+		</nav>
+	</div>
+	<!-- add classes to customize different alert type color schemes -->
+	<div class="row">
+	<% flash.each do |alert, message| %>
+		<div class="flash_<%= alert %> col s12">
+			<h5 class="col s10 offset-s1"><%= message %></h5>
+		</div>
+	<% end %>
+	</div>
+<div class="container">
+	<%= yield %>
+</div>
+<%= javascript_include_tag 'application'%>
+</body>
+</html>

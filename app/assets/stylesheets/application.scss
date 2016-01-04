@@ -1,0 +1,188 @@
+@import "materialize";
+
+@font-face {
+	font-family: "Chock-a-Block";
+	src: url(Chock-a-Block.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: "PlanetEarth";
+	src: url(PlanetEarth.ttf) format("truetype");
+}
+
+body {
+	background-color: #F8E8BB;
+	font-family: "PlanetEarth"
+}
+
+.all_buttons {
+	background-color: #4F70CC;
+	border: 1px solid #FFFFFF;
+	border-radius: 5px;
+	color: #FFFFFF;
+	width: 40%;
+	a {
+		color: #FFFFFF;
+	}
+}
+
+.all_buttons:hover {
+	background-color: #A0B5ED;
+}
+
+.all_buttons:focus {
+	background-color: #A0B5ED;
+}
+
+.navBar {
+	background-color: #4F70CC;
+	border-bottom: 5px solid #3B559C;
+	
+	.home_button {
+		width: 50%;
+	}
+	.user_buttons {
+		width: 40%;
+	}
+	.no_user_buttons {
+		width: 20%;
+	}
+}
+
+.headline {
+	border-radius: 10px;
+
+	h1 {
+	background-color: #889ACC;
+	border-radius: 10px;
+	text-decoration: underline;
+	}
+
+	.description {
+	background-color: #889ACC;
+	border-radius: 10px;
+	padding: 10px;
+	}
+}
+.parent_buttons {
+	margin-bottom: 20px;
+}
+.flash_error {
+	background-color: #EA4E4E;
+}
+
+.flash_error h3 {
+  font-size: 25px;
+}
+
+.flash_notice {
+	background-color: #4DB14B;
+  font-size: 25px;
+}
+
+.large_title {
+	font-size: 60px;
+}
+
+.children_div {
+	border-radius: 40px;
+	padding: 10px;
+	
+	p {
+		font-size: 30px;
+	}
+	
+	.dates {
+		text-decoration: underline;
+	}
+	.child_buttons {
+		margin-bottom: 20px;
+	}
+
+	h3 {
+		font-family: "Chock-a-Block";
+		font-size: 60px;
+
+		span {
+			display: inline-block;
+		}
+	}
+}
+
+.child_gender_Male {
+	background-color: #89cff0; 
+	border: 5px solid #3E9CCA;
+	
+	h3 {
+		color: #3C518E;
+	}
+}
+
+.child_gender_Female {
+	background-color: #F4C2C2;
+	border: 5px solid #AF5B5B;
+
+	h3 {
+		color: #3B559C;
+	}
+}
+.individual_memories {
+	border-radius: 10px;
+	margin-bottom: 10px;
+	padding: 5px;
+}
+.all_forms {
+	padding-bottom: 5px;
+
+	button {
+		font-size: 20px;
+	}
+	input {
+		font-size: 20px;
+	}
+
+	::-webkit-input-placeholder { 
+		color: #867F7F; 
+	}
+
+	::-moz-placeholder { 
+		color: #867F7F;
+	}
+
+	:-ms-input-placeholder { 
+		color: #867F7F;
+	}
+
+	label.active {
+		color: #4B6B92;
+		font-size: 20px;
+	}
+	label {
+		color: #4B6BC2;
+		font-size: 20px;
+	}
+
+}
+.child_info {
+	font-size: 25px;
+}
+
+.child_font_Female {
+	font-family: "Chock-a-Block";
+	font-size: 60px;
+	color: #3B559C;
+
+	span {
+		display: inline-block;
+	}
+}
+
+.child_font_Male {
+	font-family: "Chock-a-Block";
+	font-size: 60px;
+	color: #3C518E;
+
+	span {
+		display: inline-block;
+	}
+}
