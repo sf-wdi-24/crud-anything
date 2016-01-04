@@ -1,0 +1,50 @@
+body {
+	background-color: #051647;
+	text-align: center;
+}
+
+h1 {
+	color: white;
+}
+
+h2 {
+	color: white;
+}
+
+nav {
+	background-color: #FF5830;
+}
+
+a {
+	color: white;
+}
+
+a:hover {
+	color: #FF5830;
+}
+
+.container {
+	background-color: #7D1C06;
+}
+
+.btn {
+	color: white;
+	background-color: #FF5830;
+}
+
+.box {
+	color: white;
+	background-color: #051647;
+	height: 200px;
+}
+
+.alert {
+	background-color: #FF5830;
+	color: white;
+}
+
+
+.navbar {
+	color: white;
+	background-color: #FF5830;
+}
