@@ -18,7 +18,15 @@ body {
 .navBar {
 	background-color: #4F70CC;
 	border-bottom: 5px solid #3B559C;
+	
+	.home_button {
+		width: 50%;
+	}
+	.user_buttons {
+		width: 20%;
+	}
 }
+
 .headline {
 	border-radius: 10px;
 
@@ -34,7 +42,9 @@ body {
 	padding: 10px;
 	}
 }
-
+.parent_buttons {
+	margin-bottom: 20px;
+}
 .flash_error {
 	background-color: #EA4E4E;
 }
@@ -62,6 +72,11 @@ body {
 .all_buttons:hover {
 	background-color: #A0B5ED;
 }
+
+.all_buttons:focus {
+	background-color: #A0B5ED;
+}
+
 .large_title {
 	font-size: 60px;
 }
@@ -95,7 +110,6 @@ body {
 	background-color: #89cff0; 
 	border: 5px solid #3E9CCA;
 	
-	
 	h3 {
 		color: #3C518E;
 	}
@@ -104,9 +118,40 @@ body {
 .child_gender_Female {
 	background-color: #F4C2C2;
 	border: 5px solid #AF5B5B;
-	
+
 	h3 {
 		color: #3B559C;
 	}
 }
+.all_forms {
+	padding-bottom: 5px;
 
+	button {
+		font-size: 20px;
+	}
+	input {
+		font-size: 20px;
+	}
+
+	::-webkit-input-placeholder { 
+		color: #867F7F; 
+	}
+
+	::-moz-placeholder { 
+		color: #867F7F;
+	}
+
+	:-ms-input-placeholder { 
+		color: #867F7F;
+	}
+
+	label.active {
+		color: #4B6B92;
+		font-size: 20px;
+	}
+	label {
+		color: #4B6BC2;
+		font-size: 20px;
+	}
+
+}

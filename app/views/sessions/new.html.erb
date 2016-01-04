@@ -2,6 +2,7 @@
 	<div class="col s12">
 		<h1>Login Page</h1>
 	</div>
+	<div class="all_forms">
 	<%= form_for :parent, url: "/sessions", method: :post do |f| %>
 		<div class="input-field col s12">
 			<%= f.label :email, "Email Address" %>
@@ -15,4 +16,5 @@
 			<button class="all_buttons waves-effect waves-light btn col s12"><%= f.submit "Login" %></button> 
 		</div>
 		<% end %>
+		</div>
 </div>

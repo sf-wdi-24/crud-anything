@@ -2,6 +2,14 @@
 	<div class="col s12">
 		<% if current_parent == @parent %>
 			<h2 class="large_title center">Welcome <%= @parent.parent_first_name %></h2>
+			<div class="parent_buttons center">
+				<button class="all_buttons waves-effect waves-light btn"><%= link_to "Update Account", edit_parent_path(@parent) %></button>
+				<% if @parent.children.any? %>
+					<button class="all_buttons waves-effect waves-light btn"><%= link_to "Add another Child", new_child_path %></button>
+				<% else %>
+					<button class="all_buttons waves-effect waves-light btn"><%= link_to "Add a Child", new_child_path %></button>
+				<% end %>
+			</div>
 			<% @parent.children.each do |child| %>
 			<div class="row z-depth-5 children_div child_gender_<%= child.gender %>">
 					<h3 class="center child_name_title">
@@ -26,13 +34,6 @@
 					</div>
 				</div>
 				<br>
-			<% end %>
-
-			<button class="all_buttons waves-effect waves-light btn"><%= link_to "Update Account", edit_parent_path(@parent) %></button>
-			<% if @parent.children.any? %>
-				<button class="all_buttons waves-effect waves-light btn"><%= link_to "Add another Child", new_child_path %></button>
-			<% else %>
-				<button class="all_buttons waves-effect waves-light btn"><%= link_to "Add a Child", new_child_path %></button>
 			<% end %>
 		<% else %>
 			<h1>Sorry you are not logged in</h1>

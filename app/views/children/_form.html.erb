@@ -1,24 +1,26 @@
-<%= form_for @child do |f| %>
-	<div class="input-field col s12">
-		<%= f.label :child_first_name, "First Name" %>
-		<%= f.text_field :child_first_name, autofocus: true %>
-	</div>
-	<div class="input-field col s12">
-			<%= f.label :child_last_name, "Last Name" %>
-			<%= f.text_field :child_last_name, value: current_parent.parent_last_name %>
-	</div>
-	<div class="input-field col s12">
-		<%= f.radio_button :gender, "Male", value: "Male", class: "with-gap" %>
-		<%= f.label :gender_male, "Male" %>
-		<%= f.radio_button :gender, "Female", value: "Female", class: "with-gap" %>
-		<%= f.label :gender_female, "Female" %>
-	</div>
-	<div class="input-field col s12">
-		<%= f.label :birthday, "Birthday" %>
-		<br>
-		<%= f.date_field :birthday %>
-	</div>
-	<div class="input-field col s12">
-		<button class="all_buttons waves-effect waves-light btn col s12"><%= f.submit "Submit" %></button> 
-	</div>
-<% end %>
+<div class="all_forms">
+	<%= form_for @child do |f| %>
+		<div class="input-field col s12">
+			<%= f.label :child_first_name, "First Name" %>
+			<%= f.text_field :child_first_name, autofocus: true %>
+		</div>
+		<div class="input-field col s12">
+				<%= f.label :child_last_name, "Last Name" %>
+				<%= f.text_field :child_last_name, value: current_parent.parent_last_name %>
+		</div>
+		<div class="input-field col s12">
+			<%= f.radio_button :gender, "Male", value: "Male", class: "with-gap" %>
+			<%= f.label :gender_male, "Male" %>
+			<%= f.radio_button :gender, "Female", value: "Female", class: "with-gap" %>
+			<%= f.label :gender_female, "Female" %>
+		</div>
+		<div class="input-field col s12">
+			<%= f.label :birthday, "Birthday" %>
+			<br><br>
+			<%= f.date_field :birthday %>
+		</div>
+		<div class="input-field col s12">
+			<button class="all_buttons waves-effect waves-light btn col s12"><%= f.submit "Submit" %></button> 
+		</div>
+	<% end %>
+</div>

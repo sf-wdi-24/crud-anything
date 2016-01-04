@@ -16,19 +16,21 @@
 
 $(document).ready(function() {
 	
+	// Hide new memory form on page load	
 	$('.newMemory').hide();
 
+	// show new memory form when button is pressed
 	$('.addNewMemory').click( function(event) {
 		$('.child_memories').toggle();
 		$('.newMemory').toggle();
-
 	});
   
+  // disable positive flash notices after 3 seconds
   setTimeout(function() {
     $('.flash_notice').slideUp();
   }, 3000);
 
-
+  // rotate child name letters in random ways
   $('span').each(function() {
     var rotate = (Math.floor(Math.random()* 20) + 1) -10 ;
     $(this).css({
