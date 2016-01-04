@@ -13,8 +13,27 @@
 body {
 	background-color: #F8E8BB;
 	font-family: "PlanetEarth"
-
 }
+
+.all_buttons {
+	background-color: #4F70CC;
+	border: 1px solid #FFFFFF;
+	border-radius: 5px;
+	color: #FFFFFF;
+	width: 40%;
+	a {
+		color: #FFFFFF;
+	}
+}
+
+.all_buttons:hover {
+	background-color: #A0B5ED;
+}
+
+.all_buttons:focus {
+	background-color: #A0B5ED;
+}
+
 .navBar {
 	background-color: #4F70CC;
 	border-bottom: 5px solid #3B559C;
@@ -23,6 +42,9 @@ body {
 		width: 50%;
 	}
 	.user_buttons {
+		width: 40%;
+	}
+	.no_user_buttons {
 		width: 20%;
 	}
 }
@@ -58,25 +80,6 @@ body {
   font-size: 25px;
 }
 
-.all_buttons {
-	background-color: #4F70CC;
-	border: 1px solid #FFFFFF;
-	border-radius: 5px;
-	color: #FFFFFF;
-	
-	a {
-		color: #FFFFFF;
-	}
-}
-
-.all_buttons:hover {
-	background-color: #A0B5ED;
-}
-
-.all_buttons:focus {
-	background-color: #A0B5ED;
-}
-
 .large_title {
 	font-size: 60px;
 }
@@ -93,7 +96,7 @@ body {
 		text-decoration: underline;
 	}
 	.child_buttons {
-		margin-bottom: 5px;
+		margin-bottom: 20px;
 	}
 
 	h3 {
@@ -122,6 +125,11 @@ body {
 	h3 {
 		color: #3B559C;
 	}
+}
+.individual_memories {
+	border-radius: 10px;
+	margin-bottom: 10px;
+	padding: 5px;
 }
 .all_forms {
 	padding-bottom: 5px;
@@ -154,4 +162,27 @@ body {
 		font-size: 20px;
 	}
 
+}
+.child_info {
+	font-size: 25px;
+}
+
+.child_font_Female {
+	font-family: "Chock-a-Block";
+	font-size: 60px;
+	color: #3B559C;
+
+	span {
+		display: inline-block;
+	}
+}
+
+.child_font_Male {
+	font-family: "Chock-a-Block";
+	font-size: 60px;
+	color: #3C518E;
+
+	span {
+		display: inline-block;
+	}
 }

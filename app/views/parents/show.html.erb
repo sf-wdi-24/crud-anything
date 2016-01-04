@@ -3,11 +3,17 @@
 		<% if current_parent == @parent %>
 			<h2 class="large_title center">Welcome <%= @parent.parent_first_name %></h2>
 			<div class="parent_buttons center">
-				<button class="all_buttons waves-effect waves-light btn"><%= link_to "Update Account", edit_parent_path(@parent) %></button>
+				<%= link_to edit_parent_path(@parent) do %>
+					<button class="all_buttons waves-effect waves-light btn z-depth-3">Update Account</button>
+				<% end %>
 				<% if @parent.children.any? %>
-					<button class="all_buttons waves-effect waves-light btn"><%= link_to "Add another Child", new_child_path %></button>
+					<%= link_to new_child_path do %>
+						<button class="all_buttons waves-effect waves-light btn z-depth-3">Add another Child</button>
+					<% end %>
 				<% else %>
-					<button class="all_buttons waves-effect waves-light btn"><%= link_to "Add a Child", new_child_path %></button>
+					<%= link_to new_child_path do %>
+						<button class="all_buttons waves-effect waves-light btn z-depth-3">Add a Child</button>
+						<% end %>
 				<% end %>
 			</div>
 			<% @parent.children.each do |child| %>
@@ -19,18 +25,30 @@
 				</h3>
 				<hr>
 					<div class="buttons_div col s4">
-						<button class="child_buttons all_buttons waves-effect waves-light btn col s12 z-depth-3"><%= link_to "Add Memory for #{child.child_first_name}", child_path(child.id) %></button>
-						<button class="child_buttons all_buttons waves-effect waves-light btn col s12 z-depth-3"><%= link_to "Edit #{child.child_first_name}", edit_child_path(child.id) %></button>
-						<button class="child_buttons all_buttons waves-effect waves-light btn col s12 z-depth-3"><%= link_to "Remove #{child.child_first_name}", child_path(child.id), method: :delete %></button>
+						<%= link_to child_path(child.id) do %>
+							<button class="child_buttons all_buttons waves-effect waves-light btn col s12 z-depth-3">Add Memory for <%= child.child_first_name %></button>
+							<% end %>
+						<%= link_to edit_child_path(child.id) do %></button>
+							<button class="child_buttons all_buttons waves-effect waves-light btn col s12 z-depth-3">Edit <%= child.child_first_name %></button>
+						<% end %>	
+						<%= link_to child_path(child.id), method: :delete do %></button>
+							<button class="child_buttons all_buttons waves-effect waves-light btn col s12 z-depth-3">Remove <%= child.child_first_name %></button>
+						<% end %>
 					</div>
 					<div class="col s8 memories_divs">
+					<% if child.memories.any? %>
 						<h4 class="center">Memories</h4>
 						<% child.memories.each do |memory| %>
-							<p class="dates">Date: <%= memory.memory_date.strftime("%B %d, %Y") %></p>
-							<p class="descriptions"><%= memory.memory_description %></p>
-							<button class="all_buttons waves-effect waves-light btn"><%= link_to "Edit memory", edit_memory_path(memory.id) %></button>
-							<button class="all_buttons waves-effect waves-light btn"><%= link_to "Remove this memory", memory_path(memory.id), method: :delete %></button>
+							<div class="individual_memories child_gender_<%= child.gender %> z-depth-3">
+								<p class="dates">Date: <%= memory.memory_date.strftime("%B %d, %Y") %></p>
+								<p class="descriptions"><%= memory.memory_description %></p>
+								<button class="all_buttons waves-effect waves-light btn z-depth-3"><%= link_to "Edit memory", edit_memory_path(memory.id) %></button>
+								<button class="all_buttons waves-effect waves-light btn z-depth-3"><%= link_to "Remove this memory", memory_path(memory.id), method: :delete %></button>
+							</div>
 						<% end %>
+					<% else %>
+						<h4 class="center">No memories yet</h4>
+					<% end %>	
 					</div>
 				</div>
 				<br>

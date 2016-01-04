@@ -34,7 +34,7 @@ $(document).ready(function() {
   $('span').each(function() {
     var rotate = (Math.floor(Math.random()* 20) + 1) -10 ;
     $(this).css({
-    	"transform": "rotate("+(rotate)+"deg)" 
+    	"transform": "rotate("+ rotate +"deg)" 
     });
  });
 

@@ -1,18 +1,28 @@
 <div class="row">
 	<div class="col s12">
-		<h1><%= current_child.child_first_name %> <%= current_child.child_last_name %></h1>
-		<button class="all_buttons addNewMemory waves-effect waves-light btn">Add Memory</button>
-		<button class= "all_buttons waves-effect waves-light btn"><%= link_to "Edit #{current_child.child_first_name}'s information", edit_child_path(current_child.id) %></button>
-		<div class="child_memories">
+			<h3 class="center child_name_title child_font_<%= current_child.gender %>">
+			<% current_child.child_first_name.downcase.each_char do |l| %>
+				<span><%= l %></span>
+			<% end %>
+			</h3>
+		<div class="center">
+			<button class="all_buttons addNewMemory waves-effect waves-light btn z-depth-4">Add Memory</button>
+			<%= link_to edit_child_path(current_child.id) do %>
+			<button class= "all_buttons waves-effect waves-light btn z-depth-4">Edit <%= current_child.child_first_name %></button>
+			<% end %>
+		</div>
+		<div class="child_info">
 			<p>Birthday: <%= current_child.birthday.strftime("%B %d, %Y") %></p>
 			<% current_child.memories.each do |memory| %>
-			<p>Date: <%= memory.memory_date.strftime("%B %d, %Y") %></p>
-			<p>Memory: <%= memory.memory_description %></p>
+			<div class="child_memories children_div child_gender_<%= current_child.gender %> z-depth-4">
+				<p>Date: <%= memory.memory_date.strftime("%B %d, %Y") %></p>
+				<p><%= memory.memory_description %></p>
+			</div>
 			<% end %>
 		</div>
 	</div>
 	<div class="row">
-		<div class="newMemory col s12">
+		<div class="newMemory all_forms col s12">
 			<h4>Add a new memory for <%= current_child.child_first_name %></h4>
 			<%= form_for :memory, url: "/memories", method: :post do |f| %>
 			<div class="input-field col s12">
@@ -33,7 +43,7 @@
 				<%= f.hidden_field :child_id, value: @child.id %>
 			</div>	
 			<div class="input-field col s12">
-				<button class="all_buttons waves-effect waves-light btn"><%= f.submit "Add Memory" %></button>
+				<button class="all_buttons waves-effect waves-light btn col s12 z-depth-1"><%= f.submit "Add Memory" %></button>
 			</div>	
 			<% end %>	
 		</div>
