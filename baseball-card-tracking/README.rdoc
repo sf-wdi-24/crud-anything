@@ -1,28 +1,22 @@
-== README
+# Understanding Marketing Inefficiencies in Baseball Cards on eBay
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Search for baseball cards to see historical prices on ebay, through listings and visualizations
 
-Things you may want to cover:
+## Technologies Used
 
-* Ruby version
+* Ruby on Rails
+* Google Charts (visualr gem)
+* Delayed gem
+* Postgresql db
+* eBay API
 
-* System dependencies
+## Existing Features
 
-* Configuration
+* Search for players, save searches to be run daily
+* Visualize prices per card
+* See other users searches and cards
 
-* Database creation
+## Planned Features
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Run search queries daily (once uploaded to Heroku)
+* Deeper analysis and more visualization

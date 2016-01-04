@@ -1,6 +1,6 @@
 # Understanding Marketing Inefficiencies in Baseball Cards on eBay
 
-* Search for baseball cards to see historical prices on ebay, through listings and visualization
+* Search for baseball cards to see historical prices on ebay, through listings and visualizations
 
 ## Technologies Used
 
