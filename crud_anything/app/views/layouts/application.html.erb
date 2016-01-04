@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Crud Anything</title>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<nav class="navbar">
+			<ul class="nav nav-pills">
+				<li role="presentation"><a href="/">Home</a></li>
+				<li role="presentation"><a href="/signup">Signup</a></li>
+				<li role="presentation"><a href="/login">Login</a></li>
+			</ul>
+		</nav>
+		<div id="main">
+			<!-- 	<% if current_user %>
+			Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
+			<% else %>
+			<%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+			<% end %> -->
+			
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+						<%= yield %>
+					</div>
+				</div>
+			</div>
+			<div id="break">
+			<br>
+			</div>
+		</div>
+	</body>
+</html>
