@@ -23,6 +23,10 @@ a:hover {
 	color: #FF5830;
 }
 
+.pull-right {
+	color: white;
+}
+
 .container {
 	background-color: #7D1C06;
 }
