@@ -19,6 +19,21 @@ body {
 	background-color: #4F70CC;
 	border-bottom: 5px solid #3B559C;
 }
+.headline {
+	border-radius: 10px;
+
+	h1 {
+	background-color: #889ACC;
+	border-radius: 10px;
+	text-decoration: underline;
+	}
+
+	.description {
+	background-color: #889ACC;
+	border-radius: 10px;
+	padding: 10px;
+	}
+}
 
 .flash_error {
 	background-color: #EA4E4E;
