@@ -3,16 +3,16 @@ require 'json'
 
 #http://developer.ebay.com/Devzone/finding/CallRef/indec.html
 class EbayApiCall
-    def find_by_keywords(player, grade_company, grade, year, manufacturer, user_id, save, search_query_id)
+		def find_by_keywords(player, grade_company, grade, year, manufacturer, user_id, save, search_query_id)
 
-    	search_query = player.to_s + " " + grade_company.to_s + " " + grade.to_s + " " + year.to_s + " " + manufacturer.to_s
-    	allCards = Array.new
-    	results = Array.new
-    	count_less_100 = false
-    	page_count = 1
+			search_query = player.to_s + " " + grade_company.to_s + " " + grade.to_s + " " + year.to_s + " " + manufacturer.to_s
+			allCards = Array.new
+			results = Array.new
+			count_less_100 = false
+			page_count = 1
 
-    	until count_less_100 == true
-	    	urlcomp = "http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findCompletedItems&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=#{EBAY_APP_ID_KEY}&RESPONSE-DATA-FORMAT=JSON&paginationInput.pageNumber=#{page_count}&REST-PAYLOAD&categoryId=213&keywords=#{search_query}&descriptionSearch=true"
+			until count_less_100 == true
+				urlcomp = "http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findCompletedItems&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=#{EBAY_APP_ID_KEY}&RESPONSE-DATA-FORMAT=JSON&paginationInput.pageNumber=#{page_count}&REST-PAYLOAD&categoryId=213&keywords=#{search_query}&descriptionSearch=true"
 			resp = Net::HTTP.get_response(URI.parse(urlcomp))
 			json_object = JSON.parse(resp.body, :quirks_mode => true)
 			count = json_object["findCompletedItemsResponse"][0]["searchResult"][0]["@count"]

@@ -5,7 +5,7 @@
 	<% values.sort_by{|v| v.price}.each do |v| %>
 		<li><%= "Sold for $#{v.price} on #{v.endTime} after #{v.numberBids || 0} bids - " %><%= link_to v.title, v.url %>
 		<%= link_to delete_single_card_path(v.id), :method => "delete" do %>
-		    <span class="glyphicon glyphicon-trash" id="delete-glyphicon"></span>
+				<span class="glyphicon glyphicon-trash" id="delete-glyphicon"></span>
 		<% end %>
 
 		</li>
