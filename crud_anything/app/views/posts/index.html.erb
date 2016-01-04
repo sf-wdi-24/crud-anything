@@ -1,0 +1,10 @@
+<h1>Journal</h1>
+<hr>
+
+<% @posts.each do |post| %>
+<h4><%= link_to post.title, post_path(post) %></a></h4>
+<p><%= post.story %></p>
+<p><%= post.created_at.strftime("%d %b %y") %></p> 
+<hr>
+<% end %>
+<%= link_to "Add New Entry", new_post_path, class: "btn btn-default"  %>

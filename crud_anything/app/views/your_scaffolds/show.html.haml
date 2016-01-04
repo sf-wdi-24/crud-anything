@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @your_scaffold.title
+%p
+  %b Description:
+  = @your_scaffold.description
+%p
+  %b Image:
+  = @your_scaffold.image
+
+= link_to 'Edit', edit_your_scaffold_path(@your_scaffold)
+\|
+= link_to 'Back', your_scaffolds_path

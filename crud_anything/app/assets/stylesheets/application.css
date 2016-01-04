@@ -1,0 +1,52 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require bootstrap-3.3.6.min
+ *= require_tree .
+ *= require_self
+ */
+/*body {
+ 	
+ 	background-color: blue;
+ 	background-image:url("https://images.unsplash.com/photo-1417217601328-d3c66e6f1d48?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=6b6b0c2e56a3b04470f56bf738873e83");
+ 	background-size: cover;
+ }*/
+
+#main {
+   position: relative;
+   margin-top: -20px;
+}
+#main:after {
+    content : "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("https://images.unsplash.com/photo-1417217601328-d3c66e6f1d48?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=6b6b0c2e56a3b04470f56bf738873e83"); 
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    opacity : 0.7;
+    z-index: -1;
+}
+
+
+ h1 {
+ 	text-align: center;
+ }
+ #break br {
+    line-height: 1000px;
+ }
+ p {
+    color:#474241;
+    font-size: 25px;
+ }

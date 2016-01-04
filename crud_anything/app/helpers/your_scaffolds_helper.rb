@@ -1,0 +1,2 @@
+module YourScaffoldsHelper
+end
