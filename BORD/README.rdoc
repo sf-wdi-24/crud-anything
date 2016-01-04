@@ -1,28 +1,11 @@
-== README
+== BORD
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+My plan here is to eventually get an app built that will provide a service to the world of independent artists and promoters. 
 
-Things you may want to cover:
+By creating a public platform for those on tour or just looking to book events, BORD (Battered Old Road Dog) will allow for communication between artist and promoter with ease. 
 
-* Ruby version
+My goal is to create an interface which allows artists and promoters or 'hosts' to share information about their music (artists) and/or their space or location at which they can provide venue (hosts). 
 
-* System dependencies
+Artists can and should include independent bands, singer-songwriters, comedians, etc.,
+Hosts can and should include proper venues, unnofficial performance spaces, living rooms, basements, bars, etc.,
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
