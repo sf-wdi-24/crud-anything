@@ -14,11 +14,12 @@ class MemoriesController < ApplicationController
 
   def create
   	@memory = current_parent.memories.new(memory_params)
-    @child = memory_params[:child_id]
+    @child = Child.find_by_id(memory_params[:child_id])
   	if @memory.save
-  		flash[:notice] = "You have added a memory"
       if @memory.send_email
-        ParentMailer.delay(run_at: "#{memory_params[:memory_date]}").memory_mailer(current_parent, @child, @memory)
+    		flash[:notice] = "You have added a memory and will receive an email on #{(@memory.memory_date + 365).strftime("%B %d, %Y")}"
+        year_later = @memory.memory_date + 365
+        ParentMailer.delay(run_at: year_later).memory_mailer(current_parent, @child, @memory)
       end
   		redirect_to child_path(memory_params[:child_id])
   	else
@@ -39,7 +40,8 @@ class MemoriesController < ApplicationController
 		if @memory.update_attributes(memory_params)
 			flash[:notice] = "You have updated #{@child.child_first_name}'s information"
       if @memory.send_email
-        ParentMailer.delay(run_at: 1.minutes.from_now).memory_mailer(current_parent, @child, @memory)
+        year_later = @memory.memory_date + 365
+        ParentMailer.delay(run_at: year_later).memory_mailer(current_parent, @child, @memory)
       end
 			redirect_to child_path(@child)
 		else
@@ -49,9 +51,9 @@ class MemoriesController < ApplicationController
   end
   
   def destroy
-  	if current_parent  
+  	if current_parent
   	  @memory.destroy
-  		flash[:notice] = "You have removed this memory from #{@child.child_first_name}'s profile"
+      flash[:notice] = "You have removed this memory from #{@child.child_first_name}'s profile"
   		redirect_to parent_path(current_parent)
   	else
   		flash[:error] = @memory.errors.full_messages.join(", ")

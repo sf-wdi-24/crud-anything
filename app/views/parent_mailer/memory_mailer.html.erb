@@ -4,7 +4,7 @@
 	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
 </head>
 <body>
-	<h1>Memory reminder for <%= @child.child_first_name %></h1>
+	<h1>Memory reminder for <%= (@child.child_first_name).humanize %></h1>
 	<p><%= @memory.memory_description %> happened on <%= @memory.memory_date.strftime("%B %d, %Y") %></p>
 	<br><br>
 	<p>Thanks for using ReMemories</p>

@@ -28,4 +28,12 @@ $(document).ready(function() {
     $('.flash_notice').slideUp();
   }, 3000);
 
+
+  $('span').each(function() {
+    var rotate = (Math.floor(Math.random()* 20) + 1) -10 ;
+    $(this).css({
+    	"transform": "rotate("+(rotate)+"deg)" 
+    });
+ });
+
 });

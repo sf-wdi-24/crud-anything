@@ -13,7 +13,7 @@ class ChildrenController < ApplicationController
   def create
   	@child = current_parent.children.new(child_params)
   	if @child.save
-  		flash[:notice] = "You have added your child"
+  		flash[:notice] = "You have added #{@child.child_first_name}"
   		redirect_to child_path(@child)
   	else
   		flash[:error] = @child.errors.full_messages.join(", ")

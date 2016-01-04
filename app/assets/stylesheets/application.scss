@@ -1,21 +1,23 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- */
-
 @import "materialize";
 
+@font-face {
+	font-family: "Chock-a-Block";
+	src: url(Chock-a-Block.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: "PlanetEarth";
+	src: url(PlanetEarth.ttf) format("truetype");
+}
+
 body {
-	background-color: #E0D9D9;
+	background-color: #F8E8BB;
+	font-family: "PlanetEarth"
+
+}
+.navBar {
+	background-color: #4F70CC;
+	border-bottom: 5px solid #3B559C;
 }
 
 .flash_error {
@@ -31,18 +33,65 @@ body {
   font-size: 25px;
 }
 
-button a {
+.all_buttons {
+	background-color: #4F70CC;
+	border: 1px solid #FFFFFF;
+	border-radius: 5px;
 	color: #FFFFFF;
+	
+	a {
+		color: #FFFFFF;
+	}
+}
+
+.all_buttons:hover {
+	background-color: #A0B5ED;
+}
+.large_title {
+	font-size: 60px;
+}
+
+.children_div {
+	border-radius: 40px;
+	padding: 10px;
+	
+	p {
+		font-size: 30px;
+	}
+	
+	.dates {
+		text-decoration: underline;
+	}
+	.child_buttons {
+		margin-bottom: 5px;
+	}
+
+	h3 {
+		font-family: "Chock-a-Block";
+		font-size: 60px;
+
+		span {
+			display: inline-block;
+		}
+	}
 }
 
 .child_gender_Male {
 	background-color: #89cff0; 
+	border: 5px solid #3E9CCA;
+	
+	
+	h3 {
+		color: #3C518E;
+	}
 }
 
 .child_gender_Female {
 	background-color: #F4C2C2;
+	border: 5px solid #AF5B5B;
+	
+	h3 {
+		color: #3B559C;
+	}
 }
 
-.reminderArea {
-	border: 2px solid #EE6E73;
-}
