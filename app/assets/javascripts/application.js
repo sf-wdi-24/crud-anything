@@ -52,9 +52,6 @@ $('a.page-scroll').bind('click', function(event) {
     }, 1450, 'easeInOutExpo');
     event.preventDefault();
   });
-$('#galleryModal').on('show.bs.modal', function (e) {
-   $('#galleryImage').attr("src",$(e.relatedTarget).data("src"));
-});
 
 
 });
