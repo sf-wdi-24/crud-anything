@@ -1,0 +1,11 @@
+== BORD
+
+My plan here is to eventually get an app built that will provide a service to the world of independent artists and promoters. 
+
+By creating a public platform for those on tour or just looking to book events, BORD (Battered Old Road Dog) will allow for communication between artist and promoter with ease. 
+
+My goal is to create an interface which allows artists and promoters or 'hosts' to share information about their music (artists) and/or their space or location at which they can provide venue (hosts). 
+
+Artists can and should include independent bands, singer-songwriters, comedians, etc.,
+Hosts can and should include proper venues, unnofficial performance spaces, living rooms, basements, bars, etc.,
+

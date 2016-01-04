@@ -1,0 +1,16 @@
+<% content_for :top_content do %>
+	<div class="container">
+		<div class="landscape">
+			<%= image_tag "BORDlogo.png" %>
+		</div>
+		<div class="box">
+			<h1>On the road again?</h1>
+			<h2>Let BORD do some heavy lifting.</h2>
+			<p> Sign up below and get booking!</p>
+			<p>
+				<%= link_to 'Register Artist', new_artist_registration_path, class: 'btn' %>
+				<%= link_to 'Register Host', new_host_registration_path, class: 'btn' %>
+			</p>
+		</div>
+	</div>
+<% end %>
