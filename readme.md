@@ -8,15 +8,18 @@
 
 In addition, you are **required to use a gem or feature of Rails which hasn't been covered explicitly in class**.
 
-## Example Gems or Rails Features
+## Dev Job Bulletin
 
-* <a href="https://github.com/markets/awesome-ruby" target="_blank">GIANT LIST OF AWESOME GEMS</a>
-* <a href="http://code.tutsplus.com/articles/24-extremely-useful-ruby-gems-for-web-development--net-23863" target="_blank">CLICK BAIT</a>
-* <a href="http://guides.rubyonrails.org/4_2_release_notes.html" target="_blank">Rails 4.2 Release Notes</a>
-* <a href="http://guides.rubyonrails.org/4_1_release_notes.html" target="_blank">Rails 4.1 Release Notes</a>
-* <a href="http://guides.rubyonrails.org/4_0_release_notes.html" target="_blank">Rails 4.0 Release Notes</a>
-* <a href="https://blog.engineyard.com/2013/new-in-rails-4" target="_blank">Rails 4 Stuff</a>
+As a full stack developer, I would like to create a job bulletin where other developers can share jobs they they know or find a job. Even though there are many of job search websites, Dev Job Bulletin only focus on Coding industry and it's FREE for anyone who want to post a job here. Users can create a new job, create or delete there own posted job(s). Users looking for a jobs, can search the jobs other posted in the bulletin using Bulletin Search engine, or they can search jobs on Indeed using Indeed Search.
 
-## Getting started
+## Gems Used
 
-Fork and clone this repository. Change the `readme.md` to reflect what your project does, and then submit a pull request back to this repo once you're done.
+* ElasticSearch
+* Bootstrap Sass
+* Will Paginate
+* Indeed API
+
+## Heroku Link
+
+[http://jobbulletin.herokuapp.com/](http://jobbulletin.herokuapp.com)
+
