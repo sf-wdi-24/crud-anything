@@ -1,0 +1,29 @@
+<div class='containter'>
+ <div class='row'>
+  <div class='col-sm-8 col-sm-offset-2'>
+    <%= form_for @category do |f| %>
+      <% if params[:action] == 'new' %>
+        <h2 class='text-center'>Add new category</h2>
+      <% elsif params[:action] == 'edit' %>
+        <h2 class='text-center'>Edit category</h2>
+      <% end %>
+      <%= render 'partials/flashMsg' %>
+        <div class='form-group form-width'>
+          <%= f.label :name  %>
+          <%= f.text_field :name, class:'form-control', autofocus: true %>
+        </div>
+        <% if params[:action] == 'new' %>
+        <div class='form-group category'>
+          <%= f.submit 'Submit', class:'btn btn-small btn-primary' %>
+          <%= link_to 'Cancel', photos_path, class:'btn btn-small btn-primary' %>
+        </div>
+        <% elsif params[:action] == 'edit' %>
+        <div class='form-group category'>
+          <%= f.submit 'Update', class:'btn btn-small btn-primary' %>
+          <%= link_to 'Cancel', photos_path, class:'btn btn-small btn-primary' %>
+        </div>
+        <% end %>
+      <% end %>   
+    </div>
+  </div>
+</div>

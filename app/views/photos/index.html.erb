@@ -1,0 +1,26 @@
+<%= render 'partials/allNav' %>
+<div class="gallery" id="gallery">
+  <%= render 'partials/flashMsg' %>
+  <div class="container">
+    <div class="row">
+    <% @photos.each do |photo| %>
+        <div class="galleryimg" id="galleryimg">
+          <div class="grid mix category-2 col-md-4 col-sm-6 col-xs-6">
+            <a href='<%= photo.photo.normal.url.to_s %>' class='gallery-box' data-lightbox='gallery' data-title='<%= photo.title %>'>
+            <figure class="effect">
+              <%= image_tag photo.photo.thumb.url.to_s %>
+              <figcaption>
+                <h2><%= photo.title %></h2>
+                <p><%= photo.description %></p>
+              </figcaption>
+            </figure>
+            </a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="container text-center">
+  <%= paginate @photos %>
+</div>
