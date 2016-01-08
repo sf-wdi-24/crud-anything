@@ -1,0 +1,7 @@
+<% @searchQueries.each do |s| %>
+	<li><%= link_to s.search_query, "/users/#{@user.id}/searches/#{s.id}" %>
+		<%= link_to delete_search_query_path(s.id), :method => "delete" do %>
+				<span class="glyphicon glyphicon-trash" id="delete-glyphicon"></span>
+		<% end %>
+	</li>
+<% end %>

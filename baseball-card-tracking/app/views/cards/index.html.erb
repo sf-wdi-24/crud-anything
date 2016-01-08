@@ -1,0 +1,9 @@
+<%= "All User Cards" %>
+<% if @cards.present? %>
+	<% @cards.each do |c| %>
+		<% (c.map{ |k,v| "#{k}: #{v}" }.sort).each do |x| %>
+			<%= x %><br>
+		<% end %>
+		<br><br>
+	<% end %>
+<% end %>

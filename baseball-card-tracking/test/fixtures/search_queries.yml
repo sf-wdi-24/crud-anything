@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  search_query: MyString
+  user_id: 1
+  player: MyString
+  year: 1
+  manufacturer: MyString
+  grade_company: MyString
+  grade: 1
+
+two:
+  search_query: MyString
+  user_id: 1
+  player: MyString
+  year: 1
+  manufacturer: MyString
+  grade_company: MyString
+  grade: 1

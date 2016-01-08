@@ -1,0 +1,13 @@
+<div id="cards_column_chart"></div>
+<%= render_chart(@cards_column_chart, "cards_column_chart") %>
+
+<b><%= "Search: #{@searchQuery.search_query}" %><br>
+<%= "Cards:" %></b>
+<% @cards.each do |c| %>
+	<li><%= "Sold for $#{c.price} on #{c.endTime} after #{c.numberBids || 0} bids - " %><%= link_to c.title, c.url %>
+		<%= link_to delete_single_card_path(c.id), :method => "delete" do %>
+				<span class="glyphicon glyphicon-trash" id="delete-glyphicon"></span>
+		<% end %>
+
+	</li>
+<% end %>

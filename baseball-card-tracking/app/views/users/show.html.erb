@@ -1,0 +1,12 @@
+<b><%= "#{@user.name.capitalize}'s Profile" %></b>
+<br>
+<%= "Saved Search Queries (tracked daily): " %><%= link_to @searchQueries.length, user_searches_path %>
+<br>
+<%= "Cards (tracked daily, tied to searches): " %> <%= link_to @cards.length, user_cards_path %>
+<br><br>
+<% @card_links.each do |link| %>
+	<div class="thumbnail grid">
+		<br>
+		<%= image_tag link %>
+	</div>
+<% end %>

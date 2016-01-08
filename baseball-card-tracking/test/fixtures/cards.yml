@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player: MyString
+  brand: MyString
+  subbrand: MyString
+  year: 1
+  description: MyString
+  grade: 1.5
+  grade: 
+  url: MyString
+  rookie: false
+  pricestart: 1.5
+  priceend: 1.5
+  bids: 1
+  sellername: MyString
+  condition: MyString
+
+two:
+  player: MyString
+  brand: MyString
+  subbrand: MyString
+  year: 1
+  description: MyString
+  grade: 1.5
+  grade: 
+  url: MyString
+  rookie: false
+  pricestart: 1.5
+  priceend: 1.5
+  bids: 1
+  sellername: MyString
+  condition: MyString

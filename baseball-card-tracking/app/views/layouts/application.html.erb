@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BaseballCardTracking</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <script src='https://www.google.com/jsapi'></script>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-top">
+  <div class="container">
+	<ol class="breadcrumb" id="nav-links">
+	  <% if current_user %>
+		  <li><%= link_to "New Search", '/search' %></li>
+		  <li><%= link_to "Profile", user_path(current_user) %></li>
+		  <li><%= link_to "Saved Searches", user_searches_path(current_user) %></li>
+		  <li><%= link_to "Cards", user_cards_path(current_user) %></li>
+	  <% end %>
+		<% if current_user %>
+			<li><%= link_to "Settings", '/settings' %></li>
+			<li><%= link_to "Logout", '/logout' %></li>
+		<% else %>
+			<li><%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %></li>
+		<% end %>
+	</ol>
+  </div>
+</nav>
+
+<% flash.each do |name, msg| %>
+	<div><%= msg %></div>
+<% end %>
+<br><br>
+<%= yield %>
+
+</body>
+</html>
